@@ -1,0 +1,50 @@
+body {
+  background-image: url(http://thesinofman.com/images/Noah-Bradley_Chief-of-the-Ways.jpg); }
+
+img {
+  border-radius: 3.5%; }
+
+.White:hover, .WhiteClick {
+  background-color: white; }
+
+.Blue:hover, .BlueClick {
+  background-color: blue;
+  color: lightblue; }
+
+.Red:hover, .RedClick {
+  background-color: red; }
+
+.Green:hover, .GreenClick {
+  background-color: green;
+  color: gold; }
+
+.Black:hover, .BlackClick {
+  background-color: black;
+  color: white; }
+
+.Common {
+  background-color: rgba(2, 0, 0, 0.5);
+  color: white; }
+  .Common:hover, .CommonClick {
+    background-color: sienna;
+    color: black; }
+
+.Uncommon {
+  background-color: rgba(2, 0, 0, 0.5);
+  color: white; }
+  .Uncommon:hover, .UncommonClick {
+    background-color: grey; }
+
+.Rare {
+  background-color: rgba(2, 0, 0, 0.5);
+  color: white; }
+  .Rare:hover, .RareClick {
+    background-color: gold;
+    color: black; }
+
+.Mythical {
+  background-color: rgba(2, 0, 0, 0.5);
+  color: white; }
+  .Mythical:hover, .MythicalClick {
+    background-color: silver;
+    color: black; }

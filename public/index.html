@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <form>
+      <div class=".col-md-3">
+        <h1>Image Finder</h1>
+        <div class="input-group col-md-2">
+          <span class="input-group"></span>
+          <input type="text" id="name" class="form-control" placeholder="Card Name" aria-describedby="basic-addon1">
+        </div>
+        <div class=".col-md-3">
+          <button class="White">White</button>
+          <button class="Blue">Blue</button>
+          <button class="Green">Green</button>
+          <button class="Red">Red</button>
+          <button class="Black">Black</button>
+        </div>
+        <div class=".col-md-3">
+          <button class="Common">Common</button>
+          <button class="Uncommon">Uncommon</button>
+          <button class="Rare">Rare</button>
+          <button class="Mythical">Mythical</button>
+        </div>
+        <div class=".col-md-3">
+          <button id="search">Search</button>
+        </div>
+    </form>
+    <div class="imageHolder1"></div>
+    <button id="next">Next</next>
+      <div class="imageHolder2"></div>
+      <div class="imageHolder3"></div>
+      <div class="imageHolder4"></div>
+      <div class="imageHolder5"></div>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+
+      <script>
+        $(document).ready(function() {
+
+              var name;
+
+              $('#name').on('keyup', function() {
+                name = ($('#name').val());
+                console.log(name);
+                ajaxFunc();
+              });
+
+              $('button').on('click', function(e) {
+                  var currentClass = $(this).attr('class');
+                  var text = $(this).text();
+                  if (currentClass == text) {
+                    $(this).removeClass().addClass(''+currentClass+'Click')
+                  } else {
+                    $(this).removeClass().addClass(text);
+
+
+
+                  };
+                  console.log(currentClass);
+                  e.preventDefault();
+                });
+
+                function ajaxFunc() {
+
+                  $.ajax({
+
+                    url: 'https://api.deckbrew.com/mtg/cards?name=' + name + '',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+
+                      // console.log(response);
+                      var i = 0;
+                      var j = 0;
+                      var multiverseID = (response[j].editions[0].multiverse_id);
+                      if (multiverseID == 0) {
+                        i++
+                      }
+                      var imageID = (response[0].editions[i].image_url)
+
+
+
+                      // $('#next').on('click', function(){
+                      //   j++;
+                      //   var multiverseID =(response[j].editions[0].multiverse_id);
+                      // });
+                      // var resvar = response.images;
+                      // console.log(resvar);
+                      // console.log(resvar[0].unescapedURL)
+
+                      console.log(imageID)
+                      $('.imageHolder1').html('<img src="' + imageID + '">')
+                    }
+                  })
+                };
+              })
+      </script>
+
+</body>
+
+</html>
