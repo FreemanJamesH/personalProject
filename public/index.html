@@ -48,24 +48,34 @@
         $(document).ready(function() {
 
               var name;
+              var greenSearch = "";
+              var redSearch = "";
+              var blueSearch = "";
+              var whiteSearch = "";
+              var blackSearch = "";
+
 
               $('#name').on('keyup', function() {
                 name = ($('#name').val());
-                console.log(name);
+                console.log('https://api.deckbrew.com/mtg/cards?name=' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + '')
                 ajaxFunc();
               });
 
               $('button').on('click', function(e) {
+
                   var currentClass = $(this).attr('class');
                   var text = $(this).text();
                   if (currentClass == text) {
-                    $(this).removeClass().addClass(''+currentClass+'Click')
+                    $(this).removeClass().addClass(''+currentClass+'Click');
                   } else {
                     $(this).removeClass().addClass(text);
-
-
-
                   };
+                    if (currentClass == 'greenClick'){
+                      greenSearch = '&color=green'
+                    };
+
+                  
+
                   console.log(currentClass);
                   e.preventDefault();
                 });
@@ -74,7 +84,7 @@
 
                   $.ajax({
 
-                    url: 'https://api.deckbrew.com/mtg/cards?name=' + name + '',
+                    url: 'https://api.deckbrew.com/mtg/cards?name=' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + '',
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
