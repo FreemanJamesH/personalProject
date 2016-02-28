@@ -34,7 +34,7 @@
           <button id="search">Search</button>
         </div>
         <select class="types form-control">
-          <option>-Select One -</option>
+          <option>-Select One-</option>
           <option>Artifact</option>
           <option>Conspiracy</option>
           <option>Creature</option>
@@ -356,10 +356,6 @@
         </select>
     </form>
     <div class="imageHolder one"></div>
-    <div class="imageHolder two"></div>
-    <div class="imageHolder three"></div>
-    <div class="imageHolder four"></div>
-    <div class="imageHolder five"></div>
     </div>
   </div>
 </body>
@@ -463,20 +459,18 @@
     });
 
     $('select').on('change', function() {
+      $('.imageHolder.one').children().remove();
       if ($('.subtypes > option:selected').val() == '-Select One-') {
         subtype = "";
       } else {
         subtype = ('&subtype=' + $('.subtypes > option:selected').val()).toLowerCase();
-        ajaxFunc();
       }
       if ($('.types > option:selected').val() == '-Select One-') {
         type = "";
       } else {
         type = ('&type=' + $('.types > option:selected').val()).toLowerCase();
-        ajaxFunc();
-      }
-
-
+      };
+      ajaxFunc();
     })
 
 
@@ -486,42 +480,22 @@
 
     function ajaxFunc() {
 
+      var pageCount = 0;
+      var resultSize = 50;
+      var startPosition = 0;
+
       $.ajax({
 
-        url: 'https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '',
+        url: ('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '&page=' + pageCount),
         type: 'GET',
         dataType: 'json',
         success: function(response) {
 
-          // console.log(response);
-          var i = 0;
-          var j = 0;
-          var multiverseID = (response[j].editions[0].multiverse_id);
-          if (multiverseID == 0) {
-            i++
+          for ( var i = startPosition; i < resultSize; i++) {
+            var imageID = (response[i].editions[0].image_url);
+            $('.imageHolder.one').append('<img src="' + imageID + '">')
           }
-          var imageID = (response[j].editions[i].image_url);
-          var imageID2 = (response[j+1].editions[i].image_url);
-          var imageID3 = (response[j+2].editions[i].image_url);
-          var imageID4 = (response[j+3].editions[i].image_url);
-          var imageID5 = (response[j+4].editions[i].image_url);
 
-
-
-          // $('#next').on('click', function(){
-          //   j++;
-          //   var multiverseID =(response[j].editions[0].multiverse_id);
-          // });
-          // var resvar = response.images;
-          // console.log(resvar);
-          // console.log(resvar[0].unescapedURL)
-
-          console.log(imageID)
-          $('.imageHolder.one').html('<img src="' + imageID + '">')
-          $('.imageHolder.two').html('<img src="' + imageID2 + '">')
-          $('.imageHolder.three').html('<img src="' + imageID3 + '">')
-          $('.imageHolder.four').html('<img src="' + imageID4 + '">')
-          $('.imageHolder.five').html('<img src="' + imageID5 + '">')
         }
       })
     };
