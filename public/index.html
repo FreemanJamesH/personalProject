@@ -355,13 +355,16 @@
           <option>Zubera</option>
         </select>
         <select class="resultsCount form-control">
-          <option>-Select Amount-</option>
           <option>5</option>
           <option>10</option>
           <option>25</option>
           <option>50</option>
           <option>100</option>
         </select>
+        <div class=".col-md-3">
+          <button class="navButton" id="prev">Prev</button>
+          <button class="navButton" id="next">Next</button>
+        </div>
     </form>
     <div class="imageHolder one"></div>
     </div>
@@ -373,20 +376,12 @@
 <script>
   $(document).ready(function() {
 
-
-
+    var pageCount = 0;
+    var resultsMax = 5;
+    var startPosition = 0;
     var name;
-    var greenSearch = "";
-    var redSearch = "";
-    var blueSearch = "";
-    var whiteSearch = "";
-    var blackSearch = "";
-    var commonSearch = "";
-    var uncommonSearch = "";
-    var rareSearch = "";
-    var mythicalSearch = "";
-    var subtype = "";
-    var type = "";
+    var greenSearch, redSearch, blueSearch, whiteSearch, blackSearch, commonSearch, uncommonSearch, rareSearch, mythicalSearch, subtype, type = "";
+
 
     $('#name').on('keyup', function() {
       $('.imageHolder.one').children().remove();
@@ -396,7 +391,39 @@
       ajaxFunc();
     });
 
-    $('button').on('click', function(e) {
+    $('.navButton').on('click', function(event) {
+      var adder = ((+resultsMax)-startPosition)
+      if ($(this).attr('id') == 'next'){
+      resultsMax = ((+resultsMax) + ((+resultsMax)-startPosition));
+      startPosition += adder;
+      } else {
+      resultsMax = ((+resultsMax) - ((+resultsMax)-startPosition));
+      startPosition -= adder;
+    };
+
+      if (startPosition > 99){
+        pageCount++;
+        startPosition = 0;
+        resultsMax = adder;
+      }
+      if (startPosition < 0){
+        pageCount--;
+        startPosition = (100 - adder);
+        resultsMax = 100;
+      }
+
+
+
+
+      console.log(startPosition)
+      event.preventDefault();
+      $('.imageHolder.one').children().remove();
+      ajaxFunc();
+    });
+
+
+    $('button').not('.navButton').on('click', function(e) {
+      console.log('yo');
       $('.imageHolder.one').children().remove();
       var currentClass = $(this).attr('class');
       var text = $(this).text();
@@ -460,15 +487,13 @@
         case "Mythical":
           mythicalSearch = "&rarity=mythical";
           break;
-
-
-
       }
       e.preventDefault();
       ajaxFunc();
     });
 
     $('select').on('change', function() {
+      resultsMax = ($('.resultsCount > option:selected').val());
       $('.imageHolder.one').children().remove();
       if ($('.subtypes > option:selected').val() == '-Select One-') {
         subtype = "";
@@ -486,13 +511,8 @@
 
 
 
-
-
     function ajaxFunc() {
 
-      var pageCount = 0;
-      var resultSize = 50;
-      var startPosition = 0;
 
       $.ajax({
 
@@ -501,11 +521,10 @@
         dataType: 'json',
         success: function(response) {
 
-          for ( var i = startPosition; i < resultSize; i++) {
+          for (var i = startPosition; i < resultsMax; i++) {
             var imageID = (response[i].editions[0].image_url);
             $('.imageHolder.one').append('<img src="' + imageID + '">')
           }
-
         }
       })
     };
