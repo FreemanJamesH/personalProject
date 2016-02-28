@@ -354,6 +354,14 @@
           <option>Zombie</option>
           <option>Zubera</option>
         </select>
+        <select class="resultsCount form-control">
+          <option>-Select Amount-</option>
+          <option>5</option>
+          <option>10</option>
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
     </form>
     <div class="imageHolder one"></div>
     </div>
@@ -381,13 +389,15 @@
     var type = "";
 
     $('#name').on('keyup', function() {
+      $('.imageHolder.one').children().remove();
       name = ('name=' + $('#name').val());
       console.log('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '')
+
       ajaxFunc();
     });
 
     $('button').on('click', function(e) {
-
+      $('.imageHolder.one').children().remove();
       var currentClass = $(this).attr('class');
       var text = $(this).text();
       if (currentClass == text) {
