@@ -207,7 +207,8 @@ $(document).ready(function() {
     })
   };
   $('.imageHolder').on('click', '.multiEdition', function() {
-    console.log($(this).attr('data-index'))
+    console.log($(this).attr('data-index'));
+    $('.navbar-fixed-bottom').show();
   });
   $('.imageHolder').on('click', '.oneEdition', function() {
     console.log($(this).attr('data-index'))

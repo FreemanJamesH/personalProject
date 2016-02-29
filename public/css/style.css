@@ -17,6 +17,13 @@ img {
 .imageHolder {
   display: inline-block; }
 
+.navbar-fixed-bottom {
+  display: none;
+  height: 330px;
+  background-color: blue;
+  border: red 1px solid;
+  width: 100%; }
+
 .White:hover, .WhiteClick {
   background-color: white; }
 
