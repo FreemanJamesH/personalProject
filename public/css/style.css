@@ -6,7 +6,8 @@ body {
 img {
   border-radius: 3.5%;
   position: relative;
-  display: inline; }
+  display: inline;
+  margin: 3px; }
 
 .imageHolder {
   display: inline-block; }

@@ -394,8 +394,12 @@
     $('.navButton').on('click', function(event) {
       var adder = ((+resultsMax)-startPosition)
       if ($(this).attr('id') == 'next'){
+      if ((numberResults < ((+resultsMax) + ((+resultsMax)-startPosition))) && numberResults != 100) {
+        resultsMax = numberResults;
+      } else {
       resultsMax = ((+resultsMax) + ((+resultsMax)-startPosition));
       startPosition += adder;
+      }
       } else {
       resultsMax = ((+resultsMax) - ((+resultsMax)-startPosition));
       startPosition -= adder;
@@ -407,14 +411,16 @@
         resultsMax = adder;
       }
       if (startPosition < 0){
-        pageCount--;
+        if (pageCount == 0) {
+        pageCount = 0;
+        startPosition = 0;
+        resultsMax = adder;
+      } else {
+        pageCount--
         startPosition = (100 - adder);
         resultsMax = 100;
       }
-
-
-
-
+    }
       console.log(startPosition)
       event.preventDefault();
       $('.imageHolder.one').children().remove();
@@ -492,7 +498,7 @@
       ajaxFunc();
     });
 
-    $('select').on('change', function() {
+    $('select').not('.resultsCount').on('change', function() {
       resultsMax = ($('.resultsCount > option:selected').val());
       $('.imageHolder.one').children().remove();
       if ($('.subtypes > option:selected').val() == '-Select One-') {
@@ -505,7 +511,22 @@
       } else {
         type = ('&type=' + $('.types > option:selected').val()).toLowerCase();
       };
+
+      pageCount = 0;
+      startPosition = 0;
       ajaxFunc();
+    })
+
+    $('.resultsCount').on('change', function(){
+      $('.imageHolder.one').children().remove();
+      resultsMax = ($('.resultsCount > option:selected').val());
+      while (startPosition % ($('.resultsCount > option:selected').val()) != 0){
+        startPosition--};
+        console.log('yuuuur')
+
+      ajaxFunc();
+
+
     })
 
 
@@ -516,14 +537,16 @@
 
       $.ajax({
 
+
         url: ('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '&page=' + pageCount),
         type: 'GET',
         dataType: 'json',
         success: function(response) {
-
           for (var i = startPosition; i < resultsMax; i++) {
-            var imageID = (response[i].editions[0].image_url);
-            $('.imageHolder.one').append('<img src="' + imageID + '">')
+            var imageID = (response[i].editions[j].image_url);
+            console.log(response[i])
+            $('.imageHolder.one').append('<img src="' + imageID + '">');
+            numberResults = response.length;
           }
         }
       })
