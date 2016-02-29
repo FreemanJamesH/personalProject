@@ -148,7 +148,7 @@ $(document).ready(function() {
 
     pageCount = 0;
     startPosition = 0;
-    console.log ('running function')
+    console.log('running function')
     ajaxFunc();
   })
 
@@ -180,23 +180,24 @@ $(document).ready(function() {
       success: function(response) {
         console.log('ajax is running')
         for (var i = startPosition; i < resultsMax; i++) {
-            var j = 0;
-            checkForPicture();
-            function checkForPicture(){
-              console.log('checking')
-              console.log('no. editions =' + response[i].editions.length)
-              var editionsCount = response[i].editions.length;
-            if ((response[i].editions[j].image_url == 'https://image.deckbrew.com/mtg/multiverseid/0.jpg') && (j < (response[i].editions.length - 1)))  {
+          var j = 0;
+          checkForPicture();
+
+          function checkForPicture() {
+            console.log('checking')
+            console.log('no. editions =' + response[i].editions.length)
+            var editionsCount = response[i].editions.length;
+            if ((response[i].editions[j].image_url == 'https://image.deckbrew.com/mtg/multiverseid/0.jpg') && (j < (response[i].editions.length - 1))) {
               j++;
               checkForPicture();
             } else {
               var imageID = (response[i].editions[j].image_url);
               console.log(response[i])
               if (editionsCount > 1) {
-              $('.imageHolder.one').append('<img class="multiEdition" data-index="'+i+'" src="' + imageID + '">');
-            } else {
-              $('.imageHolder.one').append('<img src="' + imageID + '">');
-            };
+                $('.imageHolder.one').append('<img class="multiEdition" data-index="' + i + '" src="' + imageID + '">');
+              } else {
+                $('.imageHolder.one').append('<img class="oneEdition" data-index="' + i + '" src="' + imageID + '">');
+              };
               numberResults = response.length;
               j = 0;
             }
@@ -205,4 +206,10 @@ $(document).ready(function() {
       }
     })
   };
+  $('.imageHolder').on('click', '.multiEdition', function() {
+    console.log($(this).attr('data-index'))
+  });
+  $('.imageHolder').on('click', '.oneEdition', function() {
+    console.log($(this).attr('data-index'))
+  });
 })
