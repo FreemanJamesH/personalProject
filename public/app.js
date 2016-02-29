@@ -230,4 +230,8 @@ $(document).ready(function() {
   $('.imageHolder').on('click', '.card', function() {
     console.log($(this).attr('data-index'))
   });
+
+  $('.navbar-fixed-bottom').on('click', function(){
+    console.log('werd')
+  })
 })
