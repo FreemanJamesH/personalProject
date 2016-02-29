@@ -24,10 +24,20 @@ img {
 
 .navbar-fixed-bottom {
   display: none;
-  height: 330px;
+  height: 350px;
   background-color: blue;
   border: red 1px solid;
   width: 100%;
 
+
+}
+
+#top {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: red;
+  height:20px;
+  z-index: 1;
 
 }
