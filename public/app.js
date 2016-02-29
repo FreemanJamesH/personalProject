@@ -193,7 +193,7 @@ $(document).ready(function() {
               var imageID = (response[i].editions[j].image_url);
               console.log(response[i])
               if (editionsCount > 1) {
-              $('.imageHolder.one').append('<img class="multiEdition" src="' + imageID + '">');
+              $('.imageHolder.one').append('<img class="multiEdition" data-index="'+i+'" src="' + imageID + '">');
             } else {
               $('.imageHolder.one').append('<img src="' + imageID + '">');
             };
