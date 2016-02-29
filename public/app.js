@@ -184,14 +184,19 @@ $(document).ready(function() {
             checkForPicture();
             function checkForPicture(){
               console.log('checking')
-              console.log ('no. editions =' + response[i].editions.length)
+              console.log('no. editions =' + response[i].editions.length)
+              var editionsCount = response[i].editions.length;
             if ((response[i].editions[j].image_url == 'https://image.deckbrew.com/mtg/multiverseid/0.jpg') && (j < (response[i].editions.length - 1)))  {
               j++;
               checkForPicture();
             } else {
               var imageID = (response[i].editions[j].image_url);
               console.log(response[i])
+              if (editionsCount > 1) {
+              $('.imageHolder.one').append('<img class="multiEdition" src="' + imageID + '">');
+            } else {
               $('.imageHolder.one').append('<img src="' + imageID + '">');
+            };
               numberResults = response.length;
               j = 0;
             }

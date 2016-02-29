@@ -4,10 +4,15 @@ body {
   background-display: fixed; }
 
 img {
-  border-radius: 3.5%;
+  border-radius: 5.5%;
   position: relative;
   display: inline;
-  margin: 3px; }
+  margin: 5px; }
+
+.multiEdition {
+  border: red 5px solid;
+  padding: 0px;
+  margin: 1px; }
 
 .imageHolder {
   display: inline-block; }
