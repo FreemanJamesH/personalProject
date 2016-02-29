@@ -386,41 +386,41 @@
     $('#name').on('keyup', function() {
       $('.imageHolder.one').children().remove();
       name = ('name=' + $('#name').val());
-      console.log('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '')
+      console.log('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '&page=' + pageCount)
 
       ajaxFunc();
     });
 
     $('.navButton').on('click', function(event) {
-      var adder = ((+resultsMax)-startPosition)
-      if ($(this).attr('id') == 'next'){
-      if ((numberResults < ((+resultsMax) + ((+resultsMax)-startPosition))) && numberResults != 100) {
-        resultsMax = numberResults;
+      var adder = ((+resultsMax) - startPosition)
+      if ($(this).attr('id') == 'next') {
+        if ((numberResults < ((+resultsMax) + ((+resultsMax) - startPosition))) && numberResults != 100) {
+          resultsMax = numberResults;
+        } else {
+          resultsMax = ((+resultsMax) + ((+resultsMax) - startPosition));
+          startPosition += adder;
+        }
       } else {
-      resultsMax = ((+resultsMax) + ((+resultsMax)-startPosition));
-      startPosition += adder;
-      }
-      } else {
-      resultsMax = ((+resultsMax) - ((+resultsMax)-startPosition));
-      startPosition -= adder;
-    };
+        resultsMax = ((+resultsMax) - ((+resultsMax) - startPosition));
+        startPosition -= adder;
+      };
 
-      if (startPosition > 99){
+      if (startPosition > 99) {
         pageCount++;
         startPosition = 0;
         resultsMax = adder;
       }
-      if (startPosition < 0){
+      if (startPosition < 0) {
         if (pageCount == 0) {
-        pageCount = 0;
-        startPosition = 0;
-        resultsMax = adder;
-      } else {
-        pageCount--
-        startPosition = (100 - adder);
-        resultsMax = 100;
+          pageCount = 0;
+          startPosition = 0;
+          resultsMax = adder;
+        } else {
+          pageCount--
+          startPosition = (100 - adder);
+          resultsMax = 100;
+        }
       }
-    }
       console.log(startPosition)
       event.preventDefault();
       $('.imageHolder.one').children().remove();
@@ -514,15 +514,17 @@
 
       pageCount = 0;
       startPosition = 0;
+      console.log ('running function')
       ajaxFunc();
     })
 
-    $('.resultsCount').on('change', function(){
+    $('.resultsCount').on('change', function() {
       $('.imageHolder.one').children().remove();
       resultsMax = ($('.resultsCount > option:selected').val());
-      while (startPosition % ($('.resultsCount > option:selected').val()) != 0){
-        startPosition--};
-        console.log('yuuuur')
+      while (startPosition % ($('.resultsCount > option:selected').val()) != 0) {
+        startPosition--
+      };
+      console.log('yuuuur')
 
       ajaxFunc();
 
@@ -542,11 +544,24 @@
         type: 'GET',
         dataType: 'json',
         success: function(response) {
+          console.log('ajax is running')
           for (var i = startPosition; i < resultsMax; i++) {
-            var imageID = (response[i].editions[j].image_url);
-            console.log(response[i])
-            $('.imageHolder.one').append('<img src="' + imageID + '">');
-            numberResults = response.length;
+              var j = 0;
+              checkForPicture();
+              function checkForPicture(){
+                console.log('checking')
+                console.log ('no. editions =' + response[i].editions.length)
+              if ((response[i].editions[j].image_url == 'https://image.deckbrew.com/mtg/multiverseid/0.jpg') && (j < (response[i].editions.length - 1)))  {
+                j++;
+                checkForPicture();
+              } else {
+                var imageID = (response[i].editions[j].image_url);
+                console.log(response[i])
+                $('.imageHolder.one').append('<img src="' + imageID + '">');
+                numberResults = response.length;
+                j = 0;
+              }
+            }
           }
         }
       })
