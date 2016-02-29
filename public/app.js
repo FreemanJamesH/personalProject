@@ -215,7 +215,7 @@ $(document).ready(function() {
     console.log(storeResponse[i]);
     for (var k = 0; k < storeResponse[i].editions.length; k++){
       var localImageID = (storeResponse[i].editions[k].image_url);
-      $('.navbar-fixed-bottom').append('<img class="oneEdition" data-index="' + i + '" src="' + localImageID + '"> ')
+      $('.navbar-fixed-bottom').append('<img class="card" data-index="' + i + '" src="' + localImageID + '"> ')
     }
     $('.navbar-fixed-bottom').prepend('<div id="top"></div>');
     console.log("line 227");
@@ -227,7 +227,7 @@ $(document).ready(function() {
     console.log('clicking top red button')
   });
 
-  $('.imageHolder').on('click', '.oneEdition', function() {
+  $('.imageHolder').on('click', '.card', function() {
     console.log($(this).attr('data-index'))
   });
 })
