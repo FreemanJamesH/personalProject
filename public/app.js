@@ -3,10 +3,6 @@ $(document).ready(function() {
 
   var deck1 = [];
   var deckChecker = {};
-
-
-
-
   var pageCount = 0;
   var resultsMax = 5;
   var startPosition = 0;
@@ -260,8 +256,9 @@ $(document).ready(function() {
       // }
     if (deckChecker[name] == undefined) {
       deckChecker[name] = 1;
-    } else if (deckChecker[name] == 4) {
-      deckChecker[name] = 4;
+    } else if (deckChecker[name] == 4 && name != 'Forest' && name != 'Plains' && name != 'Mountain' && name != 'Swamp' && name != 'Island') {
+      deckChecker[name] = 4
+      alert('Sorry, each deck may only contain four instances of any card, basic lands excepted.');
     } else {
       deckChecker[name]++
     }
