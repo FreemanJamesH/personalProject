@@ -1,8 +1,15 @@
 body {
-  position: absolute;
+  position: relative;
   background-image: url(http://thesinofman.com/images/Noah-Bradley_Chief-of-the-Ways.jpg);
-  background-display: fixed;
   // padding-right: 200px;
+}
+
+select {
+  width: 33%;
+}
+
+option {
+  width: 25px;
 }
 
 img {
@@ -17,8 +24,8 @@ img {
   border: red 5px solid;
   padding: 0px;
   margin: 5px;
-  width: 218px;
-  height: 311px;
+  width: 213px;
+  height: 306px;
 
 }
 
@@ -28,26 +35,11 @@ img {
 
 .navbar-fixed-bottom {
   display: none;
-  height: 350px;
+  height: 50%;
   background-color: blue;
   border: red 1px solid;
   width: 100%;
-}
-
-
-//
-// .sidebarRight {
-//   position:fixed;
-//   height:100%;
-//   width:200px;
-//   top:0;
-//   right:0;
-//   background:grey;
-// }
-
-.sidebarToggle {
-  height: 100px;
-  background-color: red;
+  z-index: 0;
 }
 
 #top {
@@ -57,5 +49,41 @@ img {
   background-color: red;
   height:20px;
   z-index: 1;
+
+}
+
+#deckViewer {
+
+  // @extend .navbar-fixed-bottom;
+  height: 50%  ;
+  background: green;
+  position: fixed;
+  display: block;
+  width: 40%;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+#deckViewerHeader {
+  display: block;
+  position: absolute;
+  height: 10%;
+  width: 100%;
+  background-color: white;
+}
+
+
+
+
+#testBox {
+  position: relative;
+  display: block;
+  width: 50%;
+  height: 90%;
+  background-color: red;
+  top: 10%;
+  right: 0%;
+  padding-left: 1%;
 
 }

@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
 
-  var deck1 = [];
-  var deckChecker = {};
+  var deck = {};
   var pageCount = 0;
   var resultsMax = 5;
   var startPosition = 0;
@@ -23,7 +22,7 @@ $(document).ready(function() {
   $('#name').on('keyup', function() {
     $('.imageHolder.one').children().remove();
     name = ('name=' + $('#name').val());
-    console.log('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '&page=' + pageCount)
+    // console.log('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '&page=' + pageCount)
 
     ajaxFunc();
   });
@@ -58,7 +57,7 @@ $(document).ready(function() {
         resultsMax = 100;
       }
     }
-    console.log(startPosition)
+    // console.log(startPosition)
     event.preventDefault();
     $('.imageHolder.one').children().remove();
     ajaxFunc();
@@ -66,7 +65,7 @@ $(document).ready(function() {
 
 
   $('button').not('.navButton').on('click', function(e) {
-    console.log('yo');
+    // console.log('yo');
     $('.imageHolder.one').children().remove();
     var currentClass = $(this).attr('class');
     var text = $(this).text();
@@ -151,7 +150,7 @@ $(document).ready(function() {
 
     pageCount = 0;
     startPosition = 0;
-    console.log('running function')
+    // console.log('running function')
     ajaxFunc();
   })
 
@@ -161,7 +160,7 @@ $(document).ready(function() {
     while (startPosition % ($('.resultsCount > option:selected').val()) != 0) {
       startPosition--
     };
-    console.log('yuuuur')
+    // console.log('yuuuur')
 
     ajaxFunc();
 
@@ -182,21 +181,21 @@ $(document).ready(function() {
       dataType: 'json',
       success: function(response) {
         storeResponse = response;
-        console.log('ajax is running')
+        // console.log('ajax is running')
         for (var i = startPosition; i < resultsMax; i++) {
           var j = 0;
           checkForPicture();
 
           function checkForPicture() {
-            console.log('checking')
-            console.log('no. editions =' + response[i].editions.length)
+            // console.log('checking')
+            // console.log('no. editions =' + response[i].editions.length)
             var editionsCount = response[i].editions.length;
             if ((response[i].editions[j].image_url == 'https://image.deckbrew.com/mtg/multiverseid/0.jpg') && (j < (response[i].editions.length - 1))) {
               j++;
               checkForPicture();
             } else {
               var imageID = (response[i].editions[j].image_url);
-              console.log(response[i])
+              // console.log(response[i])
               if (editionsCount > 1) {
                 $('.imageHolder.one').append('<img class="multiEdition" data-index="' + i + '" src="' + imageID + '">');
               } else {
@@ -212,60 +211,46 @@ $(document).ready(function() {
   };
 
   $('.imageHolder').on('click', '.multiEdition', function() {
-    console.log("event imageHolder clicked");
-    $('.navbar-fixed-bottom').children().remove();
+    // console.log("event imageHolder clicked");
+    $('#editionBrowser').children().remove();
     i = $(this).attr('data-index');
-    console.log(storeResponse[i]);
+    // console.log(storeResponse[i]);
     for (var k = 0; k < storeResponse[i].editions.length; k++) {
       var localImageID = (storeResponse[i].editions[k].image_url);
-      $('.navbar-fixed-bottom').append('<img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"> ')
+      $('#editionBrowser').append('<img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"> ')
     }
-    $('.navbar-fixed-bottom').prepend('<div id="top"></div>');
-    console.log("line 227");
-    $('.navbar-fixed-bottom').slideDown();
+    $('#editionBrowser').prepend('<div id="top"></div>');
+    // console.log("line 227");
+    $('#editionBrowser').slideDown();
   });
 
-  $('.navbar-fixed-bottom').on('click', '#top', function() {
-    $('.navbar-fixed-bottom').slideUp();
-    console.log('clicking top red button')
+  $('#editionBrowser').on('click', '#top', function() {
+    $('#editionBrowser').slideUp();
+    // console.log('clicking top red button')
   });
 
   $('.imageHolder').on('click', '.card', function() {
-    console.log($(this).attr('data-index'))
+    // console.log($(this).attr('data-index'))
   });
 
-  $('.imageHolder, .navbar-fixed-bottom').on('click', '.card', function() {
+  $('.imageHolder, #editionBrowser').on('click', '.card', function() {
     var cardIndexValue = $(this).attr('data-index');
     var cardEditionValue = $(this).attr('data-edition');
     var cardObject = storeResponse[cardIndexValue].editions[cardEditionValue]
     var name = storeResponse[cardIndexValue].name
-    deck1.push([name, cardObject]);
-      //   for (var i = 0; i < deck1.length; i++){
-      //     var cardName = deck1[i][0];
-      //     if ((deckChecker[cardName]) == undefined) {
-      //       deckChecker[cardName] = 1;
-      //     } else if((deckChecker[cardName])  >= 4 && name !== ('Forest')){
-      //       alert('Sorry, only 4 cards allowed.');
-      //       deck1.splice(i, 1)
-      //
-      //     }else {
-      //       deckChecker[cardName]++;
-      //   }
-      //   console.log(deckChecker);
-      //   console.log(deck1);
-      // }
-    if (deckChecker[name] == undefined) {
-      deckChecker[name] = 1;
-    } else if (deckChecker[name] == 4 && name != 'Forest' && name != 'Plains' && name != 'Mountain' && name != 'Swamp' && name != 'Island') {
-      deckChecker[name] = 4
+    if (deck[name] == undefined) {
+      deck[name] = 1;
+    } else if (deck[name] == 4 && name != 'Forest' && name != 'Plains' && name != 'Mountain' && name != 'Swamp' && name != 'Island') {
+      deck[name] = 4
       alert('Sorry, each deck may only contain four instances of any card, basic lands excepted.');
     } else {
-      deckChecker[name]++
+      deck[name]++
     }
-    console.log(deckChecker);
+    console.log(deck)
+    $('#testBox').append('hi')
   })
 
-  $('.imageHolder, .navbar-fixed-bottom').on('mouseenter', '.card, .multiEdition', function() {
+  $('.imageHolder, #editionBrowser').on('mouseenter', '.card, .multiEdition', function() {
     $(this).css({
       'width': '+=4px',
       'height': '+=6px',
@@ -276,7 +261,7 @@ $(document).ready(function() {
     });
   });
 
-  $('.imageHolder, .navbar-fixed-bottom').on('mouseleave', '.card, .multiEdition', function() {
+  $('.imageHolder, #editionBrowser').on('mouseleave', '.card, .multiEdition', function() {
     $(this).css({
       'width': '-=4px',
       'height': '-=6px',
@@ -287,4 +272,26 @@ $(document).ready(function() {
     });
   })
 
+var whereDeckIs = 1;
+  $('#deckViewer').css('bottom', "-=45%")
+  $('#deckViewer').on('click', function(){
+    if(whereDeckIs == 0){
+      $(this).animate({
+        bottom: "-=45%"
+      });
+      whereDeckIs = 1;
+    }else{
+      $(this).animate({
+        bottom: "+=45%"
+      });
+      whereDeckIs = 0;
+    }
+
+    // $(this).slideToggle(1000);
+  })
+
 })
+
+// localStorage.setItem(yourObj)
+// localStorage.getItem(matchYourObj)
+// for loop over localStorage and retrieve the item you want with if/else conditionals then use .getItem to pull that out
