@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+
+  var deck1 = [];
+
+
+
+
   var pageCount = 0;
   var resultsMax = 5;
   var startPosition = 0;
@@ -183,6 +189,7 @@ $(document).ready(function() {
         for (var i = startPosition; i < resultsMax; i++) {
           var j = 0;
           checkForPicture();
+
           function checkForPicture() {
             console.log('checking')
             console.log('no. editions =' + response[i].editions.length)
@@ -196,7 +203,7 @@ $(document).ready(function() {
               if (editionsCount > 1) {
                 $('.imageHolder.one').append('<img class="multiEdition" data-index="' + i + '" src="' + imageID + '">');
               } else {
-                $('.imageHolder.one').append('<img class="card" data-index="'+ i + '" data-edition="0" src="' + imageID + '">');
+                $('.imageHolder.one').append('<img class="card" data-index="' + i + '" data-edition="0" src="' + imageID + '">');
               };
               numberResults = response.length;
               j = 0;
@@ -207,12 +214,12 @@ $(document).ready(function() {
     })
   };
 
-  $('.imageHolder').on('click', '.multiEdition', function(){
+  $('.imageHolder').on('click', '.multiEdition', function() {
     console.log("event imageHolder clicked");
     $('.navbar-fixed-bottom').children().remove();
-     i = $(this).attr('data-index');
+    i = $(this).attr('data-index');
     console.log(storeResponse[i]);
-    for (var k = 0; k < storeResponse[i].editions.length; k++){
+    for (var k = 0; k < storeResponse[i].editions.length; k++) {
       var localImageID = (storeResponse[i].editions[k].image_url);
       $('.navbar-fixed-bottom').append('<img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"> ')
     }
@@ -221,7 +228,7 @@ $(document).ready(function() {
     $('.navbar-fixed-bottom').slideDown();
   });
 
-  $('.navbar-fixed-bottom').on('click','#top', function(){
+  $('.navbar-fixed-bottom').on('click', '#top', function() {
     $('.navbar-fixed-bottom').slideUp();
     console.log('clicking top red button')
   });
@@ -230,10 +237,28 @@ $(document).ready(function() {
     console.log($(this).attr('data-index'))
   });
 
-  $('.imageHolder, .navbar-fixed-bottom').on('click', '.card', function(){
+  $('.imageHolder, .navbar-fixed-bottom').on('click', '.card', function() {
     var cardIndexValue = $(this).attr('data-index');
     var cardEditionValue = $(this).attr('data-edition');
     var multiverseID = storeResponse[cardIndexValue].editions[cardEditionValue].multiverse_id;
-    console.log(multiverseID);
+    deck1.push(multiverseID);
+    console.log(deck1);
   })
+
+  $('.imageHolder, .navbar-fixed-bottom').on('mouseenter', '.card', function() {
+    $(this).css('width', '+=3px');
+  });
+
+  $('.imageHolder, .navbar-fixed-bottom').on('mouseleave', '.card', function(){
+  $(this).css('width', '-=3px');
+  })
+
+
+  $('.sidebarRight').on('click', function() {
+    $(this).toggleClass('sidebarToggle', 600)
+  });
+  //
+  // $('.sidebarRight').on('click', function(){
+  //   $(this).slideToggle(6000);
+  // })
 })

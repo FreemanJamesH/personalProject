@@ -2,6 +2,7 @@ body {
   position: absolute;
   background-image: url(http://thesinofman.com/images/Noah-Bradley_Chief-of-the-Ways.jpg);
   background-display: fixed;
+  padding-right: 200px;
 }
 
 img {
@@ -28,8 +29,22 @@ img {
   background-color: blue;
   border: red 1px solid;
   width: 100%;
+}
 
 
+
+.sidebarRight {
+  position:fixed;
+  height:100%;
+  width:200px;
+  top:0;
+  right:0;
+  background:grey;
+}
+
+.sidebarToggle {
+  height: 100px;
+  background-color: red;
 }
 
 #top {
