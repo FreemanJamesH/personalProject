@@ -220,12 +220,16 @@ $(document).ready(function() {
       $('#editionBrowser').append('<img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"> ')
     }
     $('#editionBrowser').prepend('<div id="top"></div>');
-    // console.log("line 227");
-    $('#editionBrowser').slideDown();
+    console.log("line 227");
+    $('#editionBrowser').animate({
+      bottom: "0%"
+    });
   });
 
   $('#editionBrowser').on('click', '#top', function() {
-    $('#editionBrowser').slideUp();
+    $('#editionBrowser').animate({
+      bottom: "-50%"
+    });
     // console.log('clicking top red button')
   });
 
@@ -272,15 +276,15 @@ $(document).ready(function() {
     });
   })
 
-var whereDeckIs = 1;
-  $('#deckViewer').css('bottom', "-=45%")
-  $('#deckViewer').on('click', function(){
-    if(whereDeckIs == 0){
+  var whereDeckIs = 1;
+  // $('#deckViewer').css('bottom', "-=45%")
+  $('#deckViewer').on('click', function() {
+    if (whereDeckIs == 0) {
       $(this).animate({
         bottom: "-=45%"
       });
       whereDeckIs = 1;
-    }else{
+    } else {
       $(this).animate({
         bottom: "+=45%"
       });

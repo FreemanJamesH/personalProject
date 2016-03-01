@@ -33,13 +33,15 @@ img {
   display: inline-block;
 }
 
-.navbar-fixed-bottom {
-  display: none;
-  height: 50%;
-  background-color: blue;
-  border: red 1px solid;
+#editionBrowser {
+  height: 50%  ;
+  background: green;
+  position: fixed;
+  display: block;
   width: 100%;
-  z-index: 0;
+  bottom: 0px;
+  z-index: 1;
+  bottom: -45%;
 }
 
 #top {
@@ -61,7 +63,7 @@ img {
   display: block;
   width: 40%;
   right: 0px;
-  bottom: 0px;
+  bottom: -45%;
   z-index: 1;
 }
 
