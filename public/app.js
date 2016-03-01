@@ -240,8 +240,8 @@ $(document).ready(function() {
   $('.imageHolder, .navbar-fixed-bottom').on('click', '.card', function() {
     var cardIndexValue = $(this).attr('data-index');
     var cardEditionValue = $(this).attr('data-edition');
-    var multiverseID = storeResponse[cardIndexValue].editions[cardEditionValue].multiverse_id;
-    deck1.push(multiverseID);
+    var cardObject = storeResponse[cardIndexValue].editions[cardEditionValue]
+    deck1.push([storeResponse[cardIndexValue].name, cardObject]);
     console.log(deck1);
   })
 
@@ -267,12 +267,4 @@ $(document).ready(function() {
     });
   })
 
-
-  $('.sidebarRight').on('click', function() {
-    $(this).toggleClass('sidebarToggle', 600)
-  });
-  //
-  // $('.sidebarRight').on('click', function(){
-  //   $(this).slideToggle(6000);
-  // })
 })
