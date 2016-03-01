@@ -196,7 +196,7 @@ $(document).ready(function() {
               if (editionsCount > 1) {
                 $('.imageHolder.one').append('<img class="multiEdition" data-index="' + i + '" src="' + imageID + '">');
               } else {
-                $('.imageHolder.one').append('<img class="oneEdition" data-index="' + i + '" src="' + imageID + '">');
+                $('.imageHolder.one').append('<img class="card" data-index="'+ i + '" data-edition="0" src="' + imageID + '">');
               };
               numberResults = response.length;
               j = 0;
@@ -210,12 +210,11 @@ $(document).ready(function() {
   $('.imageHolder').on('click', '.multiEdition', function(){
     console.log("event imageHolder clicked");
     $('.navbar-fixed-bottom').children().remove();
-    var indexValue = $(this).attr('data-index');
-    i = indexValue;
+     i = $(this).attr('data-index');
     console.log(storeResponse[i]);
     for (var k = 0; k < storeResponse[i].editions.length; k++){
       var localImageID = (storeResponse[i].editions[k].image_url);
-      $('.navbar-fixed-bottom').append('<img class="card" data-index="' + i + '" src="' + localImageID + '"> ')
+      $('.navbar-fixed-bottom').append('<img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"> ')
     }
     $('.navbar-fixed-bottom').prepend('<div id="top"></div>');
     console.log("line 227");
@@ -231,7 +230,10 @@ $(document).ready(function() {
     console.log($(this).attr('data-index'))
   });
 
-  $('.navbar-fixed-bottom').on('click', function(){
-    console.log('werd')
+  $('.imageHolder, .navbar-fixed-bottom').on('click', '.card', function(){
+    var cardIndexValue = $(this).attr('data-index');
+    var cardEditionValue = $(this).attr('data-edition');
+    var multiverseID = storeResponse[cardIndexValue].editions[cardEditionValue].multiverse_id;
+    console.log(multiverseID);
   })
 })
