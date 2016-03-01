@@ -245,12 +245,26 @@ $(document).ready(function() {
     console.log(deck1);
   })
 
-  $('.imageHolder, .navbar-fixed-bottom').on('mouseenter', '.card', function() {
-    $(this).css('width', '+=3px');
+  $('.imageHolder, .navbar-fixed-bottom').on('mouseenter', '.card, .multiEdition',  function() {
+    $(this).css({
+      'width': '+=4px',
+      'height': '+=6px',
+      'margin-right': '-=1px',
+      'margin-bottom': '-=3px',
+      'margin-left': '-=3px',
+      'margin-top': '-=3px',
+    });
   });
 
-  $('.imageHolder, .navbar-fixed-bottom').on('mouseleave', '.card', function(){
-  $(this).css('width', '-=3px');
+  $('.imageHolder, .navbar-fixed-bottom').on('mouseleave', '.card, .multiEdition', function(){
+  $(this).css({
+    'width': '-=4px',
+    'height': '-=6px',
+    'margin-right': '+=1px',
+    'margin-bottom': '+=3px',
+    'margin-left': '+=3px',
+    'margin-top': '+=3px',
+    });
   })
 
 
