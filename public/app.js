@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 
   var deck1 = [];
+  var deckChecker = {};
 
 
 
@@ -241,11 +242,33 @@ $(document).ready(function() {
     var cardIndexValue = $(this).attr('data-index');
     var cardEditionValue = $(this).attr('data-edition');
     var cardObject = storeResponse[cardIndexValue].editions[cardEditionValue]
-    deck1.push([storeResponse[cardIndexValue].name, cardObject]);
-    console.log(deck1);
+    var name = storeResponse[cardIndexValue].name
+    deck1.push([name, cardObject]);
+      //   for (var i = 0; i < deck1.length; i++){
+      //     var cardName = deck1[i][0];
+      //     if ((deckChecker[cardName]) == undefined) {
+      //       deckChecker[cardName] = 1;
+      //     } else if((deckChecker[cardName])  >= 4 && name !== ('Forest')){
+      //       alert('Sorry, only 4 cards allowed.');
+      //       deck1.splice(i, 1)
+      //
+      //     }else {
+      //       deckChecker[cardName]++;
+      //   }
+      //   console.log(deckChecker);
+      //   console.log(deck1);
+      // }
+    if (deckChecker[name] == undefined) {
+      deckChecker[name] = 1;
+    } else if (deckChecker[name] == 4) {
+      deckChecker[name] = 4;
+    } else {
+      deckChecker[name]++
+    }
+    console.log(deckChecker);
   })
 
-  $('.imageHolder, .navbar-fixed-bottom').on('mouseenter', '.card, .multiEdition',  function() {
+  $('.imageHolder, .navbar-fixed-bottom').on('mouseenter', '.card, .multiEdition', function() {
     $(this).css({
       'width': '+=4px',
       'height': '+=6px',
@@ -256,14 +279,14 @@ $(document).ready(function() {
     });
   });
 
-  $('.imageHolder, .navbar-fixed-bottom').on('mouseleave', '.card, .multiEdition', function(){
-  $(this).css({
-    'width': '-=4px',
-    'height': '-=6px',
-    'margin-right': '+=1px',
-    'margin-bottom': '+=3px',
-    'margin-left': '+=3px',
-    'margin-top': '+=3px',
+  $('.imageHolder, .navbar-fixed-bottom').on('mouseleave', '.card, .multiEdition', function() {
+    $(this).css({
+      'width': '-=4px',
+      'height': '-=6px',
+      'margin-right': '+=1px',
+      'margin-bottom': '+=3px',
+      'margin-left': '+=3px',
+      'margin-top': '+=3px',
     });
   })
 
