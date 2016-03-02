@@ -1,0 +1,12 @@
+body {
+
+  background-image: url(http://www.myspacelayoutsupport.com/myspace-backgrounds/images/bricks/stone03.jpg);
+
+}
+
+div {
+  width: 100%;
+  height: 20%;
+  border: 1px red solid;
+  background-color: blue;
+}
