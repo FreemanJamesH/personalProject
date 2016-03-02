@@ -250,8 +250,10 @@ $(document).ready(function() {
     } else {
       deck[name]++
     }
-    console.log(deck)
-    $('#testBox').append('hi')
+    $('#testBox').children().remove();
+    for (var key in deck) {
+      $('#testBox').append('<li>' + key + ' x ' + deck[key] + ' </li>')
+    };
   })
 
   $('.imageHolder, #editionBrowser').on('mouseenter', '.card, .multiEdition', function() {
@@ -278,14 +280,14 @@ $(document).ready(function() {
 
   var whereDeckIs = 1;
   // $('#deckViewer').css('bottom', "-=45%")
-  $('#deckViewer').on('click', function() {
+  $('#deckViewerHeader').on('click', function() {
     if (whereDeckIs == 0) {
-      $(this).animate({
+      $(this).parent().animate({
         bottom: "-=45%"
       });
       whereDeckIs = 1;
     } else {
-      $(this).animate({
+      $(this).parent().animate({
         bottom: "+=45%"
       });
       whereDeckIs = 0;
@@ -295,6 +297,8 @@ $(document).ready(function() {
   })
 
 })
+
+$('#deckImageHolder').append('<img id="deckViewImage" src="https://image.deckbrew.com/mtg/multiverseid/31761.jpg">');
 
 // localStorage.setItem(yourObj)
 // localStorage.getItem(matchYourObj)
