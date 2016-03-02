@@ -1,12 +1,34 @@
+
 body {
-
-  background-image: url(http://www.myspacelayoutsupport.com/myspace-backgrounds/images/bricks/stone03.jpg);
-
+  height: 100%;
 }
 
-div {
-  width: 100%;
-  height: 20%;
-  border: 1px red solid;
-  background-color: blue;
+.container {
+  height: 100%;
+}
+
+img {
+  width: 80%;
+  margin: none;
+}
+
+.col-md-2 {
+  width:  15%;
+  padding: 0;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+bottom {}
+
+.thumbnail {
+  display: inline-block;
+}
+
+#panelHeight {
+  position: relative;
+  height: 40%;
 }
