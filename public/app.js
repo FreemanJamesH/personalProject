@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  $('#save').on('click', function(){
+    alert('Saved!');
+    addToLocalStorage();
+  })
+
 
   var deck = {};
   var pageCount = 0;
@@ -327,6 +332,12 @@ $(document).ready(function() {
     var imageURL = $(this).attr('data-imageurl')
     $('#deckImageHolder').html('<img id="deckViewImage" src="'+imageURL+'">');
   })
+
+  function addToLocalStorage(){
+      data = JSON.stringify(deck);
+      window.localStorage.deckData = data
+    }
+
 })
 
 // $('#deckImageHolder').append('<img id="deckViewImage" src="https://image.deckbrew.com/mtg/multiverseid/31761.jpg">');
