@@ -19,6 +19,14 @@ $(document).ready(function() {
   var type = "";
 
 
+  function updateViewer(){
+    $('#testBox').children().remove();
+    for (var key in deck) {
+      $('#testBox').append('<div><li class="deckViewerLi" data-name="'+deck[key][2]+'" data-imageurl="' + deck[key][1].image_url + '">' + key + ' x ' + deck[key][0] + ' </li><button id="remove">remove</button></div>')
+    };
+  }
+
+
   $('#name').on('keyup', function() {
     $('.imageHolder.one').children().remove();
     name = ('name=' + $('#name').val());
@@ -237,13 +245,20 @@ $(document).ready(function() {
     // console.log($(this).attr('data-index'))
   });
 
+
+
+
+  // deck[0] = Amount;
+  // deck [1] = object;
+  // deck[2] = cardName
+
   $('.imageHolder, #editionBrowser').on('click', '.card', function() {
     var cardIndexValue = $(this).attr('data-index');
     var cardEditionValue = $(this).attr('data-edition');
     var cardObject = storeResponse[cardIndexValue].editions[cardEditionValue]
     var name = storeResponse[cardIndexValue].name
     if (deck[name] == undefined) {
-      deck[name] = [1, cardObject];
+      deck[name] = [1, cardObject, name];
     } else if (deck[name][0] == 4 && name != 'Forest' && name != 'Plains' && name != 'Mountain' && name != 'Swamp' && name != 'Island') {
       deck[name][0] = 4
       alert('Sorry, each deck may only contain four instances of any card, basic lands excepted.');
@@ -251,10 +266,21 @@ $(document).ready(function() {
       deck[name][0]++
     }
     console.log(deck);
-    $('#testBox').children().remove();
-    for (var key in deck) {
-      $('#testBox').append('<li class="deckViewerLi" data-imageurl="' + deck[key][1].image_url + '">' + key + ' x ' + deck[key][0] + ' </li>')
+    updateViewer();
+  })
+
+  $('#testBox').on('click', '#remove', function(event){
+    console.log($(this).siblings().attr('data-name'));
+    var name = $(this).siblings().attr('data-name');
+    if (deck[name][0] > 1){
+      deck[name][0]--
+    } else {
+      delete deck[name];
+      // event.preventDefault();
     };
+    // console.log('there are ' + deck[name][0] + 'of us');
+    updateViewer();
+    event.preventDefault();
   })
 
   $('.imageHolder, #editionBrowser').on('mouseenter', '.card, .multiEdition', function() {
@@ -299,7 +325,7 @@ $(document).ready(function() {
   $('#testBox').on('click', '.deckViewerLi', function() {
     console.log('werd')
     var imageURL = $(this).attr('data-imageurl')
-    $('#deckImageHolder').html('<img id="deckViewImage" src="'+imageURL+'">')
+    $('#deckImageHolder').html('<img id="deckViewImage" src="'+imageURL+'">');
   })
 })
 
