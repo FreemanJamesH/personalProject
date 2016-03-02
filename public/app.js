@@ -220,7 +220,7 @@ $(document).ready(function() {
       $('#editionBrowser').append('<img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"> ')
     }
     $('#editionBrowser').prepend('<div id="top"></div>');
-    console.log("line 227");
+    // console.log("line 227");
     $('#editionBrowser').animate({
       bottom: "0%"
     });
@@ -243,16 +243,17 @@ $(document).ready(function() {
     var cardObject = storeResponse[cardIndexValue].editions[cardEditionValue]
     var name = storeResponse[cardIndexValue].name
     if (deck[name] == undefined) {
-      deck[name] = 1;
-    } else if (deck[name] == 4 && name != 'Forest' && name != 'Plains' && name != 'Mountain' && name != 'Swamp' && name != 'Island') {
-      deck[name] = 4
+      deck[name] = [1, cardObject];
+    } else if (deck[name][0] == 4 && name != 'Forest' && name != 'Plains' && name != 'Mountain' && name != 'Swamp' && name != 'Island') {
+      deck[name][0] = 4
       alert('Sorry, each deck may only contain four instances of any card, basic lands excepted.');
     } else {
-      deck[name]++
+      deck[name][0]++
     }
+    console.log(deck);
     $('#testBox').children().remove();
     for (var key in deck) {
-      $('#testBox').append('<li>' + key + ' x ' + deck[key] + ' </li>')
+      $('#testBox').append('<li class="deckViewerLi" data-imageurl="' + deck[key][1].image_url + '">' + key + ' x ' + deck[key][0] + ' </li>')
     };
   })
 
@@ -295,10 +296,14 @@ $(document).ready(function() {
 
     // $(this).slideToggle(1000);
   })
-
+  $('#testBox').on('click', '.deckViewerLi', function() {
+    console.log('werd')
+    var imageURL = $(this).attr('data-imageurl')
+    $('#deckImageHolder').html('<img id="deckViewImage" src="'+imageURL+'">')
+  })
 })
 
-$('#deckImageHolder').append('<img id="deckViewImage" src="https://image.deckbrew.com/mtg/multiverseid/31761.jpg">');
+// $('#deckImageHolder').append('<img id="deckViewImage" src="https://image.deckbrew.com/mtg/multiverseid/31761.jpg">');
 
 // localStorage.setItem(yourObj)
 // localStorage.getItem(matchYourObj)
