@@ -90,6 +90,9 @@ img {
   background-color: orange;
   margin: 0; }
 
+svg {
+  width: 15%; }
+
 .colorButton {
   width: 19%; }
 
