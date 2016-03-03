@@ -1,10 +1,46 @@
 
+body {
+  background-image: url(http://atextures.com/wp-content/uploads/2014/08/Paper-Grunge-Background-58.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 *{
   padding: 0;
   margin: 0;
 }
 
+#tableTopImage {
+  display: relative;
+  height: 1px;
+}
+
+.hand{
+  display: inline-block;
+  margin-left: -12%;
+}
+
+
+.table {
+  position: relative;
+  width: 70%;
+  height: 80%;
+  margin-left: 15%;
+  border: red 2px solid;
+}
+
+.table > * {
+  border: red 2px solid;
+}
+
+td {
+  display: relative;
+  height: 20% ;
+  border: red 2px solid;
+  padding: 0;
+  overflow: hidden;
+}
 
 
 body, html {
@@ -13,6 +49,7 @@ body, html {
 
 .container {
   height: 100%;
+  width: 100%;
 }
 
 img {
@@ -20,6 +57,13 @@ img {
   border-radius: 5%;
   margin-top: 5px;
   margin-left: 0px;
+}
+
+.tableTopImage {
+  position: absolute;;
+  margin: 0%;
+  border-radius: 5%;
+  height: 22%;
 }
 
 .col-md-2 {
@@ -36,14 +80,16 @@ img {
 #panelHeight {
   position: relative;
   border:none;
-  height: 20%;
+  height: 10%;
+  opacity: 0;
 }
 
 .navbar {
   transition: bottom 0.5s;
   height: 18%;
-  bottom: -10%;
+  /*bottom: -10%;*/
   padding: 0px;
+  opacity: 0.5;
 }
 
 
@@ -52,7 +98,7 @@ img {
   bottom: 0%;
 }
 
-#hand {
+#handNavBar {
   width: 50%;
   left: 50%;
 }
