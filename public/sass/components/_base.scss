@@ -1,82 +1,69 @@
-body {
-  position: relative;
-  background-image: url(http://thesinofman.com/images/Noah-Bradley_Chief-of-the-Ways.jpg);
-  // padding-right: 200px;
+html {
+  background: url("http://thesinofman.com/images/Noah-Bradley_Chief-of-the-Ways.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
 select {
   width: 33%;
 }
-
 option {
   width: 25px;
 }
-
 img {
   border-radius: 5.5%;
   position: relative;
   display: inline;
   margin: 3px;
-
 }
-
 #deckViewImage {
   position: relative;
-  margin: 0px;
+  margin: 0;
   width: 80%;
   margin-left: 10%;
   margin-top: 2.5%;
   top: 2%;
-
 }
-
 .multiEdition {
   border: red 5px solid;
-  padding: 0px;
+  padding: 0;
   margin: 5px;
   width: 213px;
   height: 306px;
-
 }
-
 .imageHolder {
   display: inline-block;
 }
-
 #editionBrowser {
-  height: 50%  ;
+  height: 50%;
   background: green;
   position: fixed;
   display: block;
   width: 100%;
-  bottom: 0px;
+  bottom: 0;
   z-index: 1;
   bottom: -50%;
 }
-
 #top {
   position: relative;
   display: block;
   width: 100%;
   background-color: red;
-  height:20px;
+  height: 20px;
   z-index: 1;
-
 }
-
 #deckViewer {
-
   // @extend .navbar-fixed-bottom;
-  height: 50%  ;
+  height: 50%;
   background: green;
   position: fixed;
   display: block;
   width: 40%;
-  right: 0px;
+  right: 0;
   bottom: -45%;
   z-index: 1;
 }
-
 #deckViewerHeader {
   display: block;
   position: absolute;
@@ -84,10 +71,6 @@ img {
   width: 100%;
   background-color: white;
 }
-
-
-
-
 #testBox {
   position: relative;
   display: inline-block;
@@ -95,12 +78,10 @@ img {
   height: 90%;
   background-color: red;
   top: 10%;
-  right: 0%;
+  right: 0;
   padding-left: 1%;
-  margin: 0px;
-
+  margin: 0;
 }
-
 #deckImageHolder {
   position: absolute;
   display: inline;
@@ -108,5 +89,5 @@ img {
   height: 90%;
   top: 10%;
   background-color: orange;
-  margin: 0px;
+  margin: 0;
 }
