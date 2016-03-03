@@ -3,7 +3,7 @@ $(document).ready(function() {
   var deckData;
   var deckArray = [];
 
-  $('button').on('click', function() {
+  // $('button').on('click', function() {
 
 
     deckShuffle(convertToArray(getDeckFromLocalStorage()))
@@ -11,7 +11,7 @@ $(document).ready(function() {
     // getDeckFromLocalStorage();
     // convertToArray(deckData)
 
-  });
+  // });
 
 
   function convertToArray(deckObject) {
