@@ -5,6 +5,10 @@ body {
 html {
   height: 100%; }
 
+#name {
+  height: 30px;
+  width: 20%; }
+
 .backgroundFilter {
   background-color: rgba(50, 50, 50, 0.3);
   background-size: cover;
