@@ -60,6 +60,20 @@ img {
   display: inline;
   margin: 3px; }
 
+.enterArena {
+  background-image: url(Enter_Arena.png);
+  background-image: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 50%;
+  width: 10%;
+  top: -20%;
+  right: 0px;
+  z-index: 1;
+  transition: all 0.5s; }
+  .enterArena:hover {
+    top: 0%; }
+
 #deckViewImage {
   position: relative;
   margin: 0;
@@ -120,7 +134,7 @@ img {
   height: 10%;
   width: 50%;
   right: -7px;
-  background-color: white;
+  background-color: transparent;
   border-top-left-radius: 10px;
   z-index: -1; }
 

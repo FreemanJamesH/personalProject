@@ -27,17 +27,17 @@ body {
   width: 70%;
   height: 80%;
   margin-left: 15%;
-  border: red 2px solid;
+  /*border: red 2px solid;*/
 }
 
 .table > * {
-  border: red 2px solid;
+  /*border: red 2px solid;*/
 }
 
 td {
   display: relative;
   height: 20% ;
-  border: red 2px solid;
+  /*border: red 2px solid;*/
   padding: 0;
   overflow: hidden;
 }
@@ -89,7 +89,7 @@ img {
   height: 18%;
   /*bottom: -10%;*/
   padding: 0px;
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 }
 
 

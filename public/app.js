@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $('#save').on('click', function(){
-    alert('Saved!');
+    confirm('Proceed to arena with current deck?');
     addToLocalStorage();
   })
 
