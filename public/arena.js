@@ -79,6 +79,8 @@ $(document).ready(function() {
 
 
   function turnHandArrayIntoHand() {
+    $('.hand').children().remove();
+    console.log(handArray.length)
     for (var i = 0; i < handArray.length; i++) {
       ($('#hand' + '' + i + '')).html('<img src="' + handArray[i][1].image_url + '">')
       console.log('whoooo')

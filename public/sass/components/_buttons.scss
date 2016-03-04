@@ -1,46 +1,74 @@
+* {
+  opacity: 1;
+}
+
+svg {
+  // margin-left: 50px;
+  width: 10%;
+}
+
+select {
+  -webkit-box-shadow: inset 14px 19px 17px 5px rgba(138,134,138,0.67);
+-moz-box-shadow: inset 14px 19px 17px 5px rgba(138,134,138,0.67);
+box-shadow: inset 14px 19px 17px 5px rgba(138,134,138,0.67);
+  background: transparent;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 5%;
+  height: 34px;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 2%;
+  background-image: url('whiteStone.jpg');
+}
+
+
 
 .colorButton{
   width: 19%;
-  
+
+
 }
 
-.White {
-
-  &:hover{
-    background-color: white;
-  }
-}
-
-.Blue {
-
-  &:hover{
-    background-color: blue;
-    color: lightblue;
-  }
-}
-
-.Red {
-
-  &:hover{
-    background-color: red;
-  }
-}
-
-.Green {
-
-  &:hover{
-    background-color: green;
-    color: gold;
-  }
-}
-
-.Black {
-
-  &:hover{
-    background-color: black;
-    color:white;
-  }
-}
+// .White {
+//
+//   &:hover{
+//     background-color: white;
+//   }
+// }
+//
+// .Blue {
+//
+//   &:hover{
+//     background-color: blue;
+//     color: lightblue;
+//   }
+// }
+//
+// .Red {
+//
+//   &:hover{
+//     background-color: red;
+//   }
+// }
+//
+// .Green {
+//
+//   &:hover{
+//     background-color: green;
+//     color: gold;
+//   }
+// }
+//
+// .Black {
+//
+//   &:hover{
+//     background-color: black;
+//     color:white;
+//   }
+// }
 
 .Common {
   background-color: rgba(2,0,0,0.5);

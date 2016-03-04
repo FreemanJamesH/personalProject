@@ -31,6 +31,17 @@ $(document).ready(function() {
     };
   }
 
+  $('.mana').on('click', function(){
+    var currentColor = $(this).children('path').attr('fill');
+    var fillColor = $(this).children('path').attr('data-iconColor')
+    if (currentColor == '#0D0F0F'){
+      console.log('hi')
+      console.log(fillColor)
+    $(this).find('path').attr('fill', fillColor);
+    };
+  });
+
+
 
   $('#name').on('keyup', function() {
     $('.imageHolder.one').children().remove();
@@ -77,45 +88,45 @@ $(document).ready(function() {
   });
 
 
-  $('button').not('.navButton').on('click', function(e) {
-    // console.log('yo');
+  $('.mana').on('click', function(e) {
     $('.imageHolder.one').children().remove();
     var currentClass = $(this).attr('class');
-    var text = $(this).text();
+    console.log(currentClass);
+    var text = ('mana ' + $(this).attr('data-color'));
     if (currentClass == text) {
       $(this).removeClass().addClass('' + currentClass + 'Click');
     } else {
       $(this).removeClass().addClass(text);
     };
     switch (currentClass) {
-      case "GreenClick":
+      case "mana GreenClick":
         greenSearch = "";
         break;
-      case "RedClick":
+      case "mana RedClick":
         redSearch = "";
         break;
-      case "BlueClick":
+      case "mana BlueClick":
         blueSearch = "";
         break;
-      case "BlackClick":
+      case "mana BlackClick":
         blackSearch = "";
         break;
-      case "WhiteClick":
+      case "mana WhiteClick":
         whiteSearch = "";
         break;
-      case "Black":
+      case "mana Black":
         blackSearch = "&color=black";
         break;
-      case "Green":
+      case "mana Green":
         greenSearch = "&color=green";
         break;
-      case "Red":
+      case "mana Red":
         redSearch = "&color=red";
         break;
-      case "White":
+      case "mana White":
         whiteSearch = "&color=white";
         break;
-      case "Blue":
+      case "mana Blue":
         blueSearch = "&color=blue";
         break;
       case "CommonClick":
@@ -143,6 +154,7 @@ $(document).ready(function() {
         mythicalSearch = "&rarity=mythical";
         break;
     }
+    console.log('https://api.deckbrew.com/mtg/cards?' + name + greenSearch + redSearch + blueSearch + whiteSearch + blackSearch + commonSearch + uncommonSearch + rareSearch + mythicalSearch + subtype + type + '&page=' + pageCount)
     e.preventDefault();
     ajaxFunc();
   });
