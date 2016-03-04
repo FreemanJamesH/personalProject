@@ -33,9 +33,10 @@ html {
 }
 
 .deckViewerList{
-  width: 40%;
+  width: 60%;
   display: inline-block;
-  margin-right: 0px;
+  text-align: left;
+  margin-left: 0;
 
 }
 
@@ -90,7 +91,7 @@ img {
   height: 50%;
   width: 10%;
   // border: 1px red solid;
-  top: -20%;
+  top: -16%;
   right: 0px;
   z-index: 1;
   transition: all 0.5s;
@@ -153,6 +154,11 @@ img {
   right: 0;
   bottom: -45%;
   z-index: 1;
+  transition: all 0.5s;
+
+  &:hover{
+    bottom:0%;
+  }
 }
 
 #deckViewerLi{
@@ -170,20 +176,23 @@ img {
   z-index: -1;
 }
 #testBox {
-  border-top-left-radius: 50px;
   position: absolute;
   display: inline-block;
-  width: 50%;
-  top: 10%;
-  height: 100%;
-  // background-image: url(gnarledWood.png);
+  width: 45%;
+  top: 15%;
+  height: 80%;
+  background-image: url(chalkboardFinal.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
   // background-repeat: no-repeat;
   // background-size: cover;
   left: 0;
-  padding-left: 15%;
+  padding-left: 10%;
   padding-top: 4%;
-  margin: 0;
+  margin-left: 10%;
   text-align: left;
+  align-content: left;
   color: white;
 }
 #deckImageHolder {

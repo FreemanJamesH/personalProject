@@ -249,7 +249,9 @@ $(document).ready(function() {
             } else {
               var imageID = (response[i].editions[j].image_url);
               // console.log(response[i])
-              if (editionsCount > 1) {
+              if (imageID === 'https://image.deckbrew.com/mtg/multiverseid/0.jpg') {
+                console.log("No images for this card.")
+              } else if (editionsCount > 1) {
                 $('.imageHolder.one').append('<img class="multiEdition" data-index="' + i + '" src="' + imageID + '">');
               } else {
                 $('.imageHolder.one').append('<img class="card" data-index="' + i + '" data-edition="0" src="' + imageID + '">');
