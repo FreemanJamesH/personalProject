@@ -20,9 +20,17 @@ html {
 .selectDiv {
   margin: 0px;
   padding: 0px;
-  border: red 1px solid;
   width: 19%;
   display: inline-block; }
+
+.deckViewerList {
+  width: 40%;
+  display: inline-block;
+  margin-right: 0px; }
+
+#remove {
+  display: inline-block;
+  bottom: -4px; }
 
 .container {
   border-image: url(ornateFrame.jpg);
@@ -55,7 +63,7 @@ img {
 #deckViewImage {
   position: relative;
   margin: 0;
-  width: 80%;
+  height: 90%;
   margin-left: 10%;
   margin-top: 2.5%;
   top: 2%; }
@@ -95,7 +103,7 @@ img {
 
 #deckViewer {
   height: 50%;
-  background: transparent;
+  background-image: url(gnarledWood.png);
   position: fixed;
   display: block;
   width: 40%;
@@ -103,27 +111,32 @@ img {
   bottom: -45%;
   z-index: 1; }
 
+#deckViewerLi {
+  display: inline-block; }
+
 #deckViewerHeader {
   display: inline;
   position: absolute;
   height: 10%;
   width: 50%;
   right: -7px;
-  background-color: white; }
+  background-color: white;
+  border-top-left-radius: 10px;
+  z-index: -1; }
 
 #testBox {
   border-top-left-radius: 50px;
   position: absolute;
   display: inline-block;
-  width: 100%;
+  width: 50%;
   top: 10%;
   height: 100%;
-  background-image: url(slate.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   left: 0;
-  padding-left: 1%;
-  margin: 0; }
+  padding-left: 15%;
+  padding-top: 4%;
+  margin: 0;
+  text-align: left;
+  color: white; }
 
 #deckImageHolder {
   position: absolute;

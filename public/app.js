@@ -27,7 +27,7 @@ $(document).ready(function() {
   function updateViewer(){
     $('#testBox').children().remove();
     for (var key in deck) {
-      $('#testBox').append('<div><li class="deckViewerLi" data-name="'+deck[key][2]+'" data-imageurl="' + deck[key][1].image_url + '">' + key + ' x ' + deck[key][0] + ' </li><button id="remove">remove</button></div>')
+      $('#testBox').append('<div><div class="deckViewerList" data-name="'+deck[key][2]+'" data-imageurl="' + deck[key][1].image_url + '">' + key + ' x ' + deck[key][0] + '</div><img id="remove" src="glyphicons-737-rotate-left.png"></div>')
     };
   }
 
@@ -339,7 +339,7 @@ $(document).ready(function() {
 
     // $(this).slideToggle(1000);
   })
-  $('#testBox').on('click', '.deckViewerLi', function() {
+  $('#testBox').on('click', '.deckViewerList', function() {
     console.log('werd')
     var imageURL = $(this).attr('data-imageurl')
     $('#deckImageHolder').html('<img id="deckViewImage" src="'+imageURL+'">');
