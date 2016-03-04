@@ -38,7 +38,9 @@ $(document).ready(function() {
       console.log('hi')
       console.log(fillColor)
     $(this).find('path').attr('fill', fillColor);
-    };
+  } else {
+    $(this).find('path').attr('fill', '#0D0F0F');
+  }
   });
 
 
@@ -87,6 +89,32 @@ $(document).ready(function() {
     ajaxFunc();
   });
 
+  $('.mana').on('mouseenter', function(){
+    $(this).css({
+      'width': '+=4px',
+      'height': '+=6px',
+      'margin-right': '-=1px',
+      'margin-bottom': '-=3px',
+      'margin-left': '-=3px',
+      'margin-top': '-=3px',
+    });
+
+    console.log('SVG Enter')
+  })
+
+
+  $('.mana').on('mouseleave', function(){
+    $(this).css({
+      'width': '-=4px',
+      'height': '-=6px',
+      'margin-right': '+=1px',
+      'margin-bottom': '+=3px',
+      'margin-left': '+=3px',
+      'margin-top': '+=3px',
+    });
+
+    console.log('SVG Leave')
+  })
 
   $('.mana').on('click', function(e) {
     $('.imageHolder.one').children().remove();
@@ -310,6 +338,7 @@ $(document).ready(function() {
       'margin-top': '-=3px',
     });
   });
+
 
   $('.imageHolder, #editionBrowser').on('mouseleave', '.card, .multiEdition', function() {
     $(this).css({
