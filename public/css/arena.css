@@ -1,9 +1,22 @@
 
 body {
-  background-image: url(http://atextures.com/wp-content/uploads/2014/08/Paper-Grunge-Background-58.jpg);
+  /*background-image: url(paperfinal.png);
+  background-repeat: no-repeat;
+  background-size: cover;*/
+  border-image: url(http://orig15.deviantart.net/fc2d/f/2014/208/3/1/above_clouds_by_merl1ncz-d7pg9bv.jpg);
+  border-image-outset: 30 15 17 17;
+  border-image-slice: 8% 10% 12% 12%;
+  border-image-width: 18% 10% 10% 10%;
+  background-color: transparent;
+}
+
+/*#paperDiv{
+  background-image: url(paperfinal.png);
   background-repeat: no-repeat;
   background-size: cover;
-}
+}*/
+
+
 
 
 *{
@@ -27,19 +40,28 @@ body {
   width: 70%;
   height: 80%;
   margin-left: 15%;
-  /*border: red 2px solid;*/
+  border: transparent 2px solid;
 }
 
 .table > * {
-  /*border: red 2px solid;*/
+  border: transparent 2px solid;
+
 }
 
 td {
   display: relative;
   height: 20% ;
-  /*border: red 2px solid;*/
+  border: transparent 2px solid;
   padding: 0;
   overflow: hidden;
+  outline: none;
+  background: transparent;
+
+}
+
+tr {
+  border: transparent 2px solid;
+  background: transparent;
 }
 
 
@@ -50,6 +72,9 @@ body, html {
 .container {
   height: 100%;
   width: 100%;
+  background-image: url(paperfinalclouds.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 img {
@@ -87,14 +112,14 @@ img {
 .navbar {
   transition: bottom 0.5s;
   height: 18%;
-  /*bottom: -10%;*/
+  bottom: -18%;
   padding: 0px;
   /*opacity: 0.5;*/
 }
 
 
 
-.navbar:hover{
+.navbar:hover {
   bottom: 0%;
 }
 
