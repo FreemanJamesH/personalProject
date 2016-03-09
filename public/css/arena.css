@@ -1,8 +1,8 @@
-
+/*
 body {
-  /*background-image: url(paperfinal.png);
+  background-image: url(paperfinal.png);
   background-repeat: no-repeat;
-  background-size: cover;*/
+  background-size: cover;
   border-image: url(http://orig15.deviantart.net/fc2d/f/2014/208/3/1/above_clouds_by_merl1ncz-d7pg9bv.jpg);
   border-image-outset: 30 15 17 17;
   border-image-slice: 8% 10% 12% 12%;
@@ -10,28 +10,16 @@ body {
   background-color: transparent;
 }
 
-/*#paperDiv{
-  background-image: url(paperfinal.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}*/
 
 
 
 
-*{
-  padding: 0;
-  margin: 0;
-}
-
-#tableTopImage {
-  display: relative;
-  height: 1px;
-}
-
-.hand{
+.hand {
+  position: relative;
   display: inline-block;
-  margin-left: -12%;
+  width: 15%;
+  height: 100%;
+  margin-right: -12%;
 }
 
 
@@ -67,18 +55,12 @@ tr {
 
 body, html {
   height: 100%;
-}
+}*/
 
-.container {
+
+/*img {
   height: 100%;
-  width: 100%;
-  background-image: url(paperfinalclouds.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-img {
-  /*width: 80%;*/
+  position: relative;
   border-radius: 5%;
   margin-top: 5px;
   margin-left: 0px;
@@ -111,10 +93,11 @@ img {
 
 .navbar {
   transition: bottom 0.5s;
-  height: 18%;
-  bottom: -18%;
+  height: 50%;
+  bottom: 0%;
   padding: 0px;
-  /*opacity: 0.5;*/
+  background-color: white;
+  background-image: none;
 }
 
 
@@ -126,4 +109,14 @@ img {
 #handNavBar {
   width: 50%;
   left: 50%;
+}*/
+
+--------------------------------------------------------------------------------
+
+#mainContainer {
+  height: 100%;
+  width: 100%;
+  background-image: url(paperfinalclouds.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

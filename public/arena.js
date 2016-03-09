@@ -3,16 +3,23 @@ $(document).ready(function() {
   var deckData;
   var deckArray = [];
   var handArray = [];
+  var tableObject = {};
 
-  // $('button').on('click', function() {
 
+  function tableGenerate() {
+    for (var i = 0; i < 45; i++) {
+      console.log(tableObject['' + i + '']);
+      if (tableObject['' + i + ''] === undefined) {
+        $("div[data-index='" + i + "']").children().remove();
+      }
+    }
+  }
+
+  tableGenerate();
+
+  console.log(tableObject[1])
 
   deckShuffle(convertToArray(getDeckFromLocalStorage()))
-
-  // getDeckFromLocalStorage();
-  // convertToArray(deckData)
-
-  // });
 
 
   function convertToArray(deckObject) {
@@ -43,48 +50,47 @@ $(document).ready(function() {
       sourceArray[j] = sourceArray[i];
       sourceArray[i] = temp;
     }
-    console.log(sourceArray)
   };
 
-  // deckShuffle(array)
 
-  $('#library').on('click', function() {
-    console.log('Clicked the library div');
+  $('#newName').on('click', function() {
     handArray.push(deckArray[0]);
     deckArray.shift();
-    console.log('This is your hand array: ' + handArray);
     turnHandArrayIntoHand();
   })
 
 
 
 
-  $('.hand').on('click', function() {
+  $('.handCard').on('click', function() {
     var handPosition = $(this).attr('data-handPosition');
-    // console.log('this hand position is: ' + handPosition);
     storeCard = handArray[handPosition];
     handArray.splice(handPosition, 1);
-    console.log('Storing: ' + storeCard);
-    console.log(storeCard[1].image_url)
-
   })
 
-  $('td').click(function() {
-
-    console.log('whoooo');
-    $(this).html('<img class="tableTopImage" src="' + storeCard[1].image_url + '">');
-    storeCard = [];
-    turnHandArrayIntoHand();
+  $('.cardSpace').click(function() {
+    var cardSpaceIndex = $(this).attr('data-index');
+    if (storeCard.length != 0) {
+      tableObject['' + cardSpaceIndex + ''] = storeCard;
+      $(this).html('<img class="tableTopImage" src="' + tableObject[cardSpaceIndex][1].image_url + '">');
+      storeCard = [];
+      turnHandArrayIntoHand();
+      tableGenerate();
+    }
+    else if (tableObject['' + cardSpaceIndex + ''] != undefined) {
+      tableGenerate();
+      storeCard = tableObject['' + cardSpaceIndex + ''];
+      delete(tableObject['' + cardSpaceIndex + ''])
+    }
+    console.log(tableObject);
   })
 
 
   function turnHandArrayIntoHand() {
-    $('.hand').children().remove();
+    $('.handCard').children().remove();
     console.log(handArray.length)
     for (var i = 0; i < handArray.length; i++) {
-      ($('#hand' + '' + i + '')).html('<img src="' + handArray[i][1].image_url + '">')
-      console.log('whoooo')
+      ($('#' + '' + i + '')).html('<img src="' + handArray[i][1].image_url + '">')
     }
   }
-
 });

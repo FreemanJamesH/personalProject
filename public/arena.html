@@ -10,161 +10,133 @@
 
 
 <body>
-  <div class="container">
-    <!-- <h1 class="text-center">Arena</h1> -->
+  <div id="mainContainer" class="container">
     <div id="panelHeight" class="panel panel-default"></div>
     <div id="spacingTop" class="row no-gutter">
       <div class="col-md-12"></div>
     </div>
-    <!-- <div class="tableTop row no-gutter"> -->
-      <table class="table table-inverse">
-        <!-- <tbody> -->
-          <tr>
-            <td><img id="tableTopImage" src="https://image.deckbrew.com/mtg/multiverseid/0.jpg" alt="..."></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <!-- <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr> -->
-        <!-- </tbody> -->
-      </table>
-      <!-- <div class="col-xs-3 col-md-1">
-        <img src="https://image.deckbrew.com/mtg/multiverseid/12414.jpg" alt="...">
+    <table class="table table-inverse">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <nav id='libraryGraveyardMana' class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <div class="row no-gutter bottom">
+        <div class="col-xs-3 col-md-1">
+          <img id="graveyard" src="https://image.deckbrew.com/mtg/multiverseid/79080.jpg" alt="...">
+          <div class="caption">
+            <p>graveyard</p>
+          </div>
+        </div>
+        <div id="library" class="col-xs-3 col-md-1">
+          <img id="library" src="https://image.deckbrew.com/mtg/multiverseid/0.jpg" alt="...">
+          <div class="caption">
+            <p>library</p>
+          </div>
+        </div>
+        <div class="col-xs-3 col-md-1">
+          <div class="caption">
+            <p>mana</p>
+          </div>
+        </div>
+        <div class="col-xs-3 col-md-1">
+          <div class="caption">
+            <p>mana</p>
+          </div>
+        </div>
       </div>
-      <div class="col-xs-3 col-md-1">
-        <img src="https://image.deckbrew.com/mtg/multiverseid/12414.jpg" alt="...">
-      </div>
-      <div class="col-xs-3 col-md-1">
-        <img src="https://image.deckbrew.com/mtg/multiverseid/12414.jpg" alt="...">
-      </div> -->
-      <!-- <div class="col-xs-3 col-md-1">
-        <img src="https://image.deckbrew.com/mtg/multiverseid/12414.jpg" alt="...">
-      </div> -->
     </div>
-    <nav id='libraryGraveyardMana' class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-        <div class="row no-gutter bottom">
-          <div class="col-xs-3 col-md-1">
-            <!-- <img id="graveyard" src="https://image.deckbrew.com/mtg/multiverseid/79080.jpg" alt="..."> -->
-            <div class="caption">
-              <p>graveyard</p>
-            </div>
+  </nav>
+  <nav id='handNavBar' class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <div class="row no-gutter bottom">
+        <div class="hand" id="hand0" data-handPosition="0">
+          <div class="caption">
+            <p>0</p>
           </div>
-          <div id="library" class="col-xs-3 col-md-1">
-            <img id="graveyard" src="https://image.deckbrew.com/mtg/multiverseid/0.jpg" alt="...">
-            <div class="caption">
-              <p>library</p>
-            </div>
+        </div>
+        <div class="hand" id="hand1" data-handPosition="1">
+          <div class="caption">
+            <p>1</p>
           </div>
-          <div class="col-xs-3 col-md-1">
-            <!-- <img id="graveyard" src="https://image.deckbrew.com/mtg/multiverseid/159042.jpg" alt="..."> -->
-            <div class="caption">
-              <p>mana</p>
-            </div>
+        </div>
+        <div class="hand" id="hand2" data-handPosition="2">
+          <div class="caption">
+            <p>2</p>
           </div>
-          <div class="col-xs-3 col-md-1">
-            <!-- <img id="graveyard" src="https://image.deckbrew.com/mtg/multiverseid/40119.jpg" alt="..."> -->
-            <div class="caption">
-              <p>mana</p>
-            </div>
+        </div>
+        <div class="hand" id="hand3" data-handPosition="3">
+          <div class="caption">
+            <p>3</p>
+          </div>
+        </div>
+        <div class="hand" id="hand4" data-handPosition="4">
+          <div class="caption">
+            <p>4</p>
+          </div>
+        </div>
+        <div class="hand" id="hand5" data-handPosition="5">
+          <div class="caption">
+            <p>5</p>
+          </div>
+        </div>
+        <div class="hand" id="hand6" data-handPosition="6">
+          <div class="caption">
+            <p>6</p>
+          </div>
+        </div>
+        <div class="hand" id="hand7" data-handPosition="7">
+          <div class="caption">
+            <p>7</p>
+          </div>
+        </div>
+        <div class="hand" id="hand7" data-handPosition="8">
+          <div class="caption">
+            <p>8</p>
           </div>
         </div>
       </div>
-    </nav>
-    <nav id='handNavBar' class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-        <div class="row no-gutter bottom">
-          <div class="hand" id="hand0" data-handPosition="0" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>0</p>
-            </div>
-          </div>
-          <div class="hand" id="hand1" data-handPosition="1" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>1</p>
-            </div>
-          </div>
-          <div class="hand" id="hand2" data-handPosition="2" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>2</p>
-            </div>
-          </div>
-          <div class="hand" id="hand3" data-handPosition="3" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>3</p>
-            </div>
-          </div>
-          <div class="hand" id="hand4" data-handPosition="4" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>4</p>
-            </div>
-          </div>
-          <div class="hand" id="hand5" data-handPosition="5" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>5</p>
-            </div>
-          </div>
-          <div class="hand" id="hand6" data-handPosition="6" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>6</p>
-            </div>
-          </div>
-          <div class="hand" id="hand7" data-handPosition="7" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>7</p>
-            </div>
-          </div>
-          <div class="hand" id="hand7" data-handPosition="8" class="col-xs-3 col-md-1">
-            <div class="caption">
-              <p>8</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+    </div>
+  </nav>
   </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
