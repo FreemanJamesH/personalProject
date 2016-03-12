@@ -88,9 +88,10 @@ img:not(#library):hover {
 
 .bottom:hover {
   position: fixed;
-  width: 100%;
+  width: 101%;
   height: 38%;
   bottom: 0%;
+  left: -1%;
   background-image: url(dragonHandFinal.png);
   background-size: cover;
   background-position: 0px 50px;;
