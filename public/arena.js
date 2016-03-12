@@ -57,7 +57,7 @@ $(document).ready(function() {
   };
 
 
-  $('#newName').on('click', function() {
+  $('#library').on('click', function() {
     handArray.push(deckArray[0]);
     deckArray.shift();
     turnHandArrayIntoHand();
