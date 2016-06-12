@@ -330,28 +330,28 @@ $(document).ready(function() {
     event.preventDefault();
   })
 
-  $('.imageHolder, #editionBrowser').on('mouseenter', '.card, .multiEdition', function() {
-    $(this).css({
-      'width': '+=4px',
-      'height': '+=6px',
-      'margin-right': '-=1px',
-      'margin-bottom': '-=3px',
-      'margin-left': '-=3px',
-      'margin-top': '-=3px',
-    });
-  });
-
-
-  $('.imageHolder, #editionBrowser').on('mouseleave', '.card, .multiEdition', function() {
-    $(this).css({
-      'width': '-=4px',
-      'height': '-=6px',
-      'margin-right': '+=1px',
-      'margin-bottom': '+=3px',
-      'margin-left': '+=3px',
-      'margin-top': '+=3px',
-    });
-  })
+  // $('.imageHolder, #editionBrowser').on('mouseenter', '.card, .multiEdition', function() {
+  //   $(this).css({
+  //     'width': '+=4px',
+  //     'height': '+=6px',
+  //     'margin-right': '-=1px',
+  //     'margin-bottom': '-=3px',
+  //     'margin-left': '-=3px',
+  //     'margin-top': '-=3px',
+  //   });
+  // });
+  //
+  //
+  // $('.imageHolder, #editionBrowser').on('mouseleave', '.card, .multiEdition', function() {
+  //   $(this).css({
+  //     'width': '-=4px',
+  //     'height': '-=6px',
+  //     'margin-right': '+=1px',
+  //     'margin-bottom': '+=3px',
+  //     'margin-left': '+=3px',
+  //     'margin-top': '+=3px',
+  //   });
+  // })
 
   var whereDeckIs = 1;
   // $('#deckViewer').css('bottom', "-=45%")
