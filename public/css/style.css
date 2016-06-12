@@ -38,6 +38,10 @@ html {
   bottom: -4px; }
 
 .container {
+  border-style: solid;
+  -moz-border-image: url(ornateFrame.jpg);
+  -webkit-border-image: url(ornateFrame.jpg);
+  -o-border-image: url(ornateFrame.jpg);
   border-image: url(ornateFrame.jpg);
   border-image-outset: 30 15 17 17;
   border-image-slice: 8% 10% 12% 12%;
@@ -54,7 +58,8 @@ html {
   border-radius: 5.5%;
   overflow: scroll;
   background-attachment: scroll;
-  text-align: center; }
+  text-align: center;
+}
 
 option {
   width: 25px; }
