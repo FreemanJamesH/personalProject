@@ -296,7 +296,7 @@ $(document).ready(function() {
 
   $('.imageHolder, #editionBrowser').on('click', '.card', function() {
     // console.log($(this).attr('data-index'))
-    $('#popup').fadeIn(0).fadeOut(1800);
+    $('#popup').fadeIn(400).fadeOut(400);
   });
 
   $('.imageHolder, #editionBrowser').on('click', '.card', function() {

@@ -231,8 +231,10 @@ img.card {
   display: inline-block;
 }
 #deckViewerHeader {
+  font-weight: bold;
+  font-size: 1.7em;
   margin-left: calc(20% + 26px);
-  margin-top: 2%;
+  margin-top: 1.5%;
   text-align: center;
   justify-content: center;
   height: 10%;
