@@ -27,7 +27,7 @@ $(document).ready(function() {
   function updateViewer(){
     $('#testBox').children().remove();
     for (var key in deck) {
-      $('#testBox').append('<div><div class="deckViewerList" data-name="'+deck[key][2]+'" data-imageurl="' + deck[key][1].image_url + '">' + key + ' x ' + deck[key][0] + '</div><img id="remove" src="glyphicons-737-rotate-left.png"></div>')
+      $('#testBox').append('<div><div class="deckViewerList" data-name="'+deck[key][2]+'" >' + key + ' x ' + deck[key][0] + '</div><div id="remove">Remove</div></div>')
     };
   }
 
@@ -266,7 +266,10 @@ $(document).ready(function() {
     })
   };
 
+
   $('#popup').hide();
+
+
 
   $('.imageHolder').on('click', '.multiEdition', function() {
     // console.log("event imageHolder clicked");
@@ -275,9 +278,9 @@ $(document).ready(function() {
     // console.log(storeResponse[i]);
     for (var k = 0; k < storeResponse[i].editions.length; k++) {
       var localImageID = (storeResponse[i].editions[k].image_url);
-      $('#editionBrowser').append('<img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"> ')
+      $('#editionBrowser').append('<div class="wrapperDiv"><img class="card" data-index="' + i + '" data-edition="' + k + '" src="' + localImageID + '"></div> ')
     }
-    $('#editionBrowser').prepend('<div id="top"></div>');
+    $('#editionBrowser').prepend('<div id="top">Click to close.</div>');
     // console.log("line 227");
     $('#editionBrowser').animate({
       bottom: "0%"
@@ -291,7 +294,7 @@ $(document).ready(function() {
     // console.log('clicking top red button')
   });
 
-  $('.imageHolder').on('click', '.card', function() {
+  $('.imageHolder, #editionBrowser').on('click', '.card', function() {
     // console.log($(this).attr('data-index'))
     $('#popup').fadeIn(0).fadeOut(1800);
   });
@@ -367,11 +370,11 @@ $(document).ready(function() {
 
     // $(this).slideToggle(1000);
   })
-  $('#testBox').on('click', '.deckViewerList', function() {
-    console.log('werd')
-    var imageURL = $(this).attr('data-imageurl')
-    $('#deckImageHolder').html('<img id="deckViewImage" src="'+imageURL+'">');
-  })
+  // $('#testBox').on('click', '.deckViewerList', function() {
+  //   console.log('werd')
+  //   var imageURL = $(this).attr('data-imageurl')
+  //   $('#deckImageHolder').html('<img id="deckViewImage" src="'+imageURL+'">');
+  // })
 
   function addToLocalStorage(){
       data = JSON.stringify(deck);
