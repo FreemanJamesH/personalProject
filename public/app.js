@@ -266,6 +266,8 @@ $(document).ready(function() {
     })
   };
 
+  $('#popup').hide();
+
   $('.imageHolder').on('click', '.multiEdition', function() {
     // console.log("event imageHolder clicked");
     $('#editionBrowser').children().remove();
@@ -291,6 +293,7 @@ $(document).ready(function() {
 
   $('.imageHolder').on('click', '.card', function() {
     // console.log($(this).attr('data-index'))
+    $('#popup').fadeIn(0).fadeOut(1800);
   });
 
   $('.imageHolder, #editionBrowser').on('click', '.card', function() {

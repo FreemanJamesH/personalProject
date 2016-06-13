@@ -5,6 +5,19 @@ body {
 html {
   height: 100%;
 }
+
+#popup {
+  z-index: 100;
+  width: 100%;
+  position: absolute;
+  font-size: 50px;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 #name {
   height: 30px;
   width: 20%;
