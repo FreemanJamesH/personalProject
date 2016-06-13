@@ -1,14 +1,14 @@
 body {
   background-color: black;
-  background-repeat: repeat; }
-
+  background-repeat: repeat;
+}
 html {
-  height: 100%; }
-
+  height: 100%;
+}
 #name {
   height: 30px;
-  width: 20%; }
-
+  width: 20%;
+}
 .backgroundFilter {
   background-color: rgba(50, 50, 50, 0.3);
   background-size: cover;
@@ -19,24 +19,25 @@ html {
   border-radius: 0%;
   overflow: scroll;
   background-attachment: scroll;
-  text-align: center; }
-
+  text-align: center;
+}
 .selectDiv {
   margin: 0px;
   padding: 0px;
   width: 19%;
-  display: inline-block; }
-
+  min-width: 100px;
+  display: inline-block;
+}
 .deckViewerList {
   width: 60%;
   display: inline-block;
   text-align: left;
-  margin-left: 0; }
-
+  margin-left: 0;
+}
 #remove {
   display: inline-block;
-  bottom: -4px; }
-
+  bottom: -4px;
+}
 .container {
   border-style: solid;
   -moz-border-image: url(ornateFrame.jpg);
@@ -60,21 +61,23 @@ html {
   background-attachment: scroll;
   text-align: center;
 }
-
 option {
-  width: 25px; }
-
+  width: 25px;
+}
 img {
   border-radius: 5.5%;
   position: relative;
   /*width: 30px;*/
   display: inline;
-  margin: 3px;
+  /*margin: 3px;*/
 }
 
-img.card {
-  width: 22%;
-  min-width: 150px;
+
+
+svg:hover{
+  -webkit-filter: brightness(1.2) blur(2px);
+  -o-filter: brightness(1.2) blur(2px);
+  filter: brightness(1.2) blur(2px);
 }
 
 img.card:hover {
@@ -82,49 +85,75 @@ img.card:hover {
   -o-filter: brightness(1.2);
   filter: brightness(1.2);
 }
-
 .enterArena {
   background-image: url(Enter_Arena.png);
   background-image: cover;
   background-repeat: no-repeat;
   position: fixed;
   height: 50%;
-  width: 10%;
-  top: -16%;
-  right: 0px;
+  width: 0;
+  padding-right: 20%;
+  top: -12%;
+  right: -5%;
   z-index: 1;
-  transition: all 0.5s; }
-  .enterArena:hover {
-    top: 0%; }
-
+  transition: all 0.5s;
+}
+.enterArena:hover {
+  top: -4%;
+}
 #deckViewImage {
   position: relative;
   margin: 0;
   height: 90%;
   margin-left: 10%;
   margin-top: 2.5%;
-  top: 2%; }
-
-.multiEdition {
-  border: red 5px solid;
-  padding: 0;
-  margin: 5px;
-  width: calc(22% - 10px);
-  min-width: 140px;
-
+  top: 2%;
+}
+.wrapperDiv {
+  width: 22%;
+  padding: 0px;
+  margin: 3px;
+  position: relative;
+  display: inline-block;
+  min-width: 150px;
 }
 
-.multiEdition:hover {
+.wrapperDiv span{
+-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 18% 100%, 0 85%);
+/*clip-path: polygon(0 0, 100% 0, 100% 100%, 18% 100%, 0 85%);*/
+position:absolute;
+background-image: url(pageflip.png);
+background-size: cover;
+background-repeat: no-repeat;
+bottom: 0px;
+left: 0px;
+width: 20%;
+height: 20%;
+z-index: 100;
+}
 
+img.card {
+  padding: 0;
+  width: 100%;
+  min-width: 150px;
+  background-image: url(http://icons.veryicon.com/ico/System/iOS7%20Minimal/Gaming%20Cards.ico);
+}
+.multiEdition {
+  /*border: red 5px solid;*/
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  min-width: 150px;
+}
+.multiEdition:hover {
   -webkit-filter: brightness(1.2);
   -o-filter: brightness(1.2);
   filter: brightness(1.2);
-
 }
 .imageHolder {
   display: inline-block;
-  width: 90%; }
-
+  width: 90%;
+}
 #editionBrowser {
   height: 50%;
   background: rgba(0, 0, 0, 0.7);
@@ -136,8 +165,8 @@ img.card:hover {
   bottom: -50%;
   border-radius: 14% 14% 0% 0%;
   overflow-x: scroll;
-  overflow-y: hidden; }
-
+  overflow-y: hidden;
+}
 #top {
   position: relative;
   display: block;
@@ -145,8 +174,8 @@ img.card:hover {
   background-color: rgba(152, 153, 152, 0.9);
   height: 30px;
   z-index: 1;
-  border-radius: 25% 25% 0% 0%; }
-
+  border-radius: 25% 25% 0% 0%;
+}
 #deckViewer {
   height: 50%;
   background-image: url(gnarledWood.png);
@@ -156,13 +185,14 @@ img.card:hover {
   right: 0;
   bottom: -45%;
   z-index: 1;
-  transition: all 0.5s; }
-  #deckViewer:hover {
-    bottom: 0%; }
-
+  transition: all 0.5s;
+}
+#deckViewer:hover {
+  bottom: 0%;
+}
 #deckViewerLi {
-  display: inline-block; }
-
+  display: inline-block;
+}
 #deckViewerHeader {
   display: inline;
   position: absolute;
@@ -171,8 +201,8 @@ img.card:hover {
   right: -7px;
   background-color: transparent;
   border-top-left-radius: 10px;
-  z-index: -1; }
-
+  z-index: -1;
+}
 #testBox {
   position: absolute;
   display: inline-block;
@@ -189,7 +219,8 @@ img.card:hover {
   margin-left: 10%;
   text-align: left;
   align-content: left;
-  color: white; }
+  color: white;
+}
 
 /*#deckImageHolder {
   position: absolute;
@@ -202,14 +233,14 @@ img.card:hover {
   margin: 0; }*/
 
 .mana {
-  margin-top: 3%; }
-
+  margin-top: 3%;
+}
 * {
-  opacity: 1; }
-
+  opacity: 1;
+}
 svg {
-  width: 10%; }
-
+  width: 10%;
+}
 select {
   -webkit-box-shadow: inset 14px 19px 17px 5px rgba(138, 134, 138, 0.67);
   -moz-box-shadow: inset 14px 19px 17px 5px rgba(138, 134, 138, 0.67);
@@ -224,34 +255,39 @@ select {
   -webkit-appearance: none;
   width: 100%;
   margin: 2%;
-  background-image: url("whiteStone.jpg"); }
-
+  background-image: url("whiteStone.jpg");
+}
 .colorButton {
-  width: 19%; }
-
+  width: 19%;
+}
 .Common {
   background-color: rgba(2, 0, 0, 0.5);
-  color: white; }
-  .Common:hover, .CommonClick {
-    background-color: sienna;
-    color: black; }
-
+  color: white;
+}
+.Common:hover, .CommonClick {
+  background-color: sienna;
+  color: black;
+}
 .Uncommon {
   background-color: rgba(2, 0, 0, 0.5);
-  color: white; }
-  .Uncommon:hover, .UncommonClick {
-    background-color: grey; }
-
+  color: white;
+}
+.Uncommon:hover, .UncommonClick {
+  background-color: grey;
+}
 .Rare {
   background-color: rgba(2, 0, 0, 0.5);
-  color: white; }
-  .Rare:hover, .RareClick {
-    background-color: gold;
-    color: black; }
-
+  color: white;
+}
+.Rare:hover, .RareClick {
+  background-color: gold;
+  color: black;
+}
 .Mythical {
   background-color: rgba(2, 0, 0, 0.5);
-  color: white; }
-  .Mythical:hover, .MythicalClick {
-    background-color: silver;
-    color: black; }
+  color: white;
+}
+.Mythical:hover, .MythicalClick {
+  background-color: silver;
+  color: black;
+}

@@ -89,32 +89,32 @@ $(document).ready(function() {
     ajaxFunc();
   });
 
-  $('.mana').on('mouseenter', function(){
-    $(this).css({
-      'width': '+=4px',
-      'height': '+=6px',
-      'margin-right': '-=1px',
-      'margin-bottom': '-=3px',
-      'margin-left': '-=3px',
-      'margin-top': '-=3px',
-    });
-
-    console.log('SVG Enter')
-  })
-
-
-  $('.mana').on('mouseleave', function(){
-    $(this).css({
-      'width': '-=4px',
-      'height': '-=6px',
-      'margin-right': '+=1px',
-      'margin-bottom': '+=3px',
-      'margin-left': '+=3px',
-      'margin-top': '+=3px',
-    });
-
-    console.log('SVG Leave')
-  })
+  // $('.mana').on('mouseenter', function(){
+  //   $(this).css({
+  //     'width': '+=4px',
+  //     'height': '+=6px',
+  //     'margin-right': '-=1px',
+  //     'margin-bottom': '-=3px',
+  //     'margin-left': '-=3px',
+  //     'margin-top': '-=3px',
+  //   });
+  //
+  //   console.log('SVG Enter')
+  // })
+  //
+  //
+  // $('.mana').on('mouseleave', function(){
+  //   $(this).css({
+  //     'width': '-=4px',
+  //     'height': '-=6px',
+  //     'margin-right': '+=1px',
+  //     'margin-bottom': '+=3px',
+  //     'margin-left': '+=3px',
+  //     'margin-top': '+=3px',
+  //   });
+  //
+  //   console.log('SVG Leave')
+  // })
 
   $('.mana').on('click', function(e) {
     $('.imageHolder.one').children().remove();
@@ -252,9 +252,10 @@ $(document).ready(function() {
               if (imageID === 'https://image.deckbrew.com/mtg/multiverseid/0.jpg') {
                 console.log("No images for this card.")
               } else if (editionsCount > 1) {
-                $('.imageHolder.one').append('<img class="multiEdition" data-index="' + i + '" src="' + imageID + '">');
+                //  style="background:url(thumbnail1.jpg)"
+                $('.imageHolder.one').append('<div class="wrapperDiv"><img class="multiEdition" data-index="' + i + '" src="' + imageID + '"></div>');
               } else {
-                $('.imageHolder.one').append('<img class="card" data-index="' + i + '" data-edition="0" src="' + imageID + '">');
+                $('.imageHolder.one').append('<div class="wrapperDiv"><img class="card" src="' + imageID + '" data-index="' + i + '" data-edition="0"></div>');
               };
               numberResults = response.length;
               j = 0;
@@ -291,13 +292,6 @@ $(document).ready(function() {
   $('.imageHolder').on('click', '.card', function() {
     // console.log($(this).attr('data-index'))
   });
-
-
-
-
-  // deck[0] = Amount;
-  // deck [1] = object;
-  // deck[2] = cardName
 
   $('.imageHolder, #editionBrowser').on('click', '.card', function() {
     var cardIndexValue = $(this).attr('data-index');
